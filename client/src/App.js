@@ -1,24 +1,25 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 import "./App.css";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import BookCard from "./components/BookCard/BookCard";
 
 const App = () => {
-  const books = [
-    {
-      title: "Book One",
-      description: "This is the description for book one.",
-      releaseDate: "2022-01-01",
-      pageCount: 320,
-    },
-    {
-      title: "Book Two",
-      description: "This is the description for book two.",
-      releaseDate: "2023-05-12",
-      pageCount: 280,
-    },
-  ];
+  const [books, setBooks] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get("http://localhost:3000/data");
+        setBooks(response.data);
+      } catch (error) {
+        console.error("Error fetching the book data", error);
+      }
+    };
+
+    fetchData();
+  }, []);
 
   return (
     <div className="app">
