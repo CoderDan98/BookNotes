@@ -1,28 +1,12 @@
-import React, { useEffect, useState } from "react";
-import axios from "axios";
+import React from "react";
 import "./App.css";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import BookCard from "./components/BookCard/BookCard";
+import UseFetchBooks from "./hooks/UseFetchBooks.js";
 
 const App = () => {
-  const [books, setBooks] = useState([]);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axios.get("http://localhost:3000/data");
-        setBooks(response.data);
-      } catch (error) {
-        console.error("Error fetching the book data", error);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchData();
-  }, []);
+  const { books, loading, error } = UseFetchBooks();
 
   return (
     <div className="app">
@@ -31,6 +15,8 @@ const App = () => {
         <h1>Book List</h1>
         {loading ? (
           <p>Loading...</p>
+        ) : error ? (
+          <p>{error}</p>
         ) : (
           <div className="book-list">
             {books.map((book, index) => (
