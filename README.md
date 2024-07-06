@@ -23,3 +23,13 @@ INSERT INTO books (title, description, notes, release_date, author, page_count, 
 ('Book Four', 'A heartwarming romance.', NULL, '2020-03-25', 'Author Four', 320, 'Publisher Four'),
 ('Book Five', 'A gripping horror story.', 'Highly recommended', '2019-11-05', 'Author Five', 280, 'Publisher Five');
 ```
+
+**.env File Setup**
+
+```plaintext
+DB_USER = 'your_user'
+DB_HOST = 'your_host'
+DB_DATABASE = 'your_database'
+DB_PASSWORD = 'your_password'
+DB_PORT = 'your_db_port'
+```
