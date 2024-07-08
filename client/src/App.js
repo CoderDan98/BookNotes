@@ -24,7 +24,6 @@ const App = () => {
     <div className="app">
       <Header onSearch={handleSearch} />
       <div className="content">
-        <h1>Book List</h1>
         {loading ? (
           <p>Loading...</p>
         ) : error ? (
