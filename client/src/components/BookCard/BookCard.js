@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import "./BookCard.css";
 import { DeleteBook } from "../../services/Books";
 import UseFetchCoverImage from "../../hooks/UseFetchCoverImage";
-import EditBookCard from "./EditBookCard";
+import EditBookModal from "./EditBookCard";
 
 const BookCard = ({
   id,
@@ -31,6 +31,14 @@ const BookCard = ({
     isbn,
   });
 
+  useEffect(() => {
+    if (isEditModalVisible) {
+      document.body.classList.add("modal-open");
+    } else {
+      document.body.classList.remove("modal-open");
+    }
+  }, [isEditModalVisible]);
+
   const handleDelete = async () => {
     try {
       await DeleteBook(id);
@@ -51,6 +59,8 @@ const BookCard = ({
   };
 
   const handleModalSave = (updatedDetails) => {
+    // Here you would typically send the updated details to your server
+    // For now, we'll just update the state
     setBookDetails(updatedDetails);
     setEditModalVisible(false);
   };
@@ -95,7 +105,7 @@ const BookCard = ({
           onClick={handleDelete}
         ></i>
       </div>
-      <EditBookCard
+      <EditBookModal
         show={isEditModalVisible}
         bookDetails={bookDetails}
         onClose={handleModalClose}

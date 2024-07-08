@@ -1,3 +1,4 @@
+/* Modal.css */
 .modal {
   position: fixed;
   top: 0;
@@ -8,6 +9,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 1000; /* Ensure the modal appears above other elements */
 }
 
 .modal-content {
@@ -18,8 +20,31 @@
   width: 100%;
 }
 
+.edit-book-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
 .modal-actions {
   display: flex;
-  justify-content: flex-end;
-  gap: 10px;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.update-icon {
+  color: green;
+  font-size: 1.5em;
+  cursor: pointer;
+}
+
+.cancel-icon {
+  color: red;
+  font-size: 1.5em;
+  cursor: pointer;
+}
+
+/* Disable background scrolling when the modal is open */
+body.modal-open {
+  overflow: hidden;
 }

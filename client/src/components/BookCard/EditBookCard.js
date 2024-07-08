@@ -1,12 +1,25 @@
 import React from "react";
 import "./EditBookCard.css";
+import "@fortawesome/fontawesome-free/css/all.min.css";
 
 const EditBookCard = ({ show, bookDetails, onClose, onSave }) => {
+  const [formData, setFormData] = React.useState({
+    ...bookDetails,
+    description: bookDetails.description || "",
+    notes: bookDetails.notes || "",
+  });
+
+  React.useEffect(() => {
+    setFormData({
+      ...bookDetails,
+      description: bookDetails.description || "",
+      notes: bookDetails.notes || "",
+    });
+  }, [bookDetails]);
+
   if (!show) {
     return null;
   }
-
-  const [formData, setFormData] = React.useState(bookDetails);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -21,7 +34,7 @@ const EditBookCard = ({ show, bookDetails, onClose, onSave }) => {
     <div className="modal">
       <div className="modal-content">
         <h2>Edit Book Details</h2>
-        <form>
+        <form className="edit-book-form">
           <label>
             Title:
             <input
@@ -40,10 +53,56 @@ const EditBookCard = ({ show, bookDetails, onClose, onSave }) => {
               onChange={handleChange}
             />
           </label>
+          <label>
+            Release Date:
+            <input
+              type="text"
+              name="releaseDate"
+              value={formData.releaseDate}
+              onChange={handleChange}
+            />
+          </label>
+          <label>
+            Publisher:
+            <input
+              type="text"
+              name="publisher"
+              value={formData.publisher}
+              onChange={handleChange}
+            />
+          </label>
+          <label>
+            Page Count:
+            <input
+              type="number"
+              name="pageCount"
+              value={formData.pageCount}
+              onChange={handleChange}
+            />
+          </label>
+          <label>
+            Description:
+            <textarea
+              name="description"
+              value={formData.description}
+              onChange={handleChange}
+            />
+          </label>
+          <label>
+            Notes:
+            <textarea
+              name="notes"
+              value={formData.notes}
+              onChange={handleChange}
+            />
+          </label>
         </form>
         <div className="modal-actions">
-          <button onClick={handleSave}>Update</button>
-          <button onClick={onClose}>Cancel</button>
+          <i
+            className="fas fa-check-circle update-icon"
+            onClick={handleSave}
+          ></i>
+          <i className="fas fa-times-circle cancel-icon" onClick={onClose}></i>
         </div>
       </div>
     </div>
