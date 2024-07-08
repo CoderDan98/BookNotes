@@ -47,7 +47,6 @@
   font-size: 16px;
 }
 
-/* Responsive styling for mobile devices */
 @media (max-width: 768px) {
   .header {
     flex-direction: column;
@@ -84,7 +83,7 @@
   .nav-links a {
     font-size: 18px;
     padding: 10px 20px;
-    width: calc(100% - 40px); /* Adjusted padding */
+    width: calc(100% - 40px);
     text-align: left;
     background-color: #404552;
     border-radius: 5px;
@@ -98,6 +97,6 @@
     width: calc(100% - 20px);
     padding: 10px;
     font-size: 18px;
-    border-radius: 5px; /* Added rounded edges */
+    border-radius: 5px;
   }
 }
