@@ -4,6 +4,7 @@ import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import BookCard from "./components/BookCard/BookCard";
 import UseFetchBooks from "./hooks/UseFetchBooks.js";
+import { formatDate } from "./utils/FormatDate.js";
 
 const App = () => {
   const { books, loading, error } = UseFetchBooks();
@@ -24,7 +25,7 @@ const App = () => {
                 key={book.book_id}
                 title={book.title}
                 author={book.author}
-                releaseDate={book.release_date}
+                releaseDate={formatDate(book.release_date)}
                 publisher={book.publisher}
                 pageCount={book.page_count}
                 description={book.description}

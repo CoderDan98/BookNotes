@@ -26,12 +26,10 @@ const BookCard = ({
         <strong>Page Count:</strong> {pageCount}
       </p>
       <p>
-        <strong>Descriptions:</strong>
-        {description}
+        <strong>Descriptions:</strong> {description}
       </p>
       <p>
-        <strong>Notes:</strong>
-        {notes}
+        <strong>Notes:</strong> {notes}
       </p>
     </div>
   );
