@@ -5,6 +5,7 @@
   margin: 16px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   background-color: #fff;
+  position: relative;
 }
 
 .book-card h2 {
@@ -15,4 +16,26 @@
 .book-card p {
   margin: 4px 0;
   font-size: 14px;
+}
+
+.icon-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 16px; /* Adjust if necessary to add space above the icons */
+}
+
+.edit-icon,
+.recycle-bin-icon {
+  font-size: 24px;
+  color: #999;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.edit-icon:hover {
+  color: #5bc0de;
+}
+
+.recycle-bin-icon:hover {
+  color: #d9534f;
 }

@@ -1,4 +1,5 @@
 import React from "react";
+import "@fortawesome/fontawesome-free/css/all.min.css";
 import "./BookCard.css";
 
 const BookCard = ({
@@ -31,6 +32,10 @@ const BookCard = ({
       <p>
         <strong>Notes:</strong> {notes}
       </p>
+      <div className="icon-container">
+        <i className="fas fa-pencil-alt edit-icon"></i>
+        <i className="fas fa-trash-alt recycle-bin-icon"></i>
+      </div>
     </div>
   );
 };
