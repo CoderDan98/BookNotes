@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import "./BookCard.css";
 import { DeleteBook } from "../../services/Books";
+import UseFetchCoverImage from "../../hooks/UseFetchCoverImage";
 
 const BookCard = ({
   id,
@@ -15,24 +16,7 @@ const BookCard = ({
   isbn,
   onDelete,
 }) => {
-  const [coverUrl, setCoverUrl] = useState("");
-
-  useEffect(() => {
-    if (isbn) {
-      const url = `https://covers.openlibrary.org/b/isbn/${isbn}-M.jpg`;
-      fetch(url)
-        .then((response) => {
-          if (response.ok) {
-            setCoverUrl(url);
-          } else {
-            console.error("Cover image not found:", url);
-          }
-        })
-        .catch((error) => {
-          console.error("Error fetching the cover image:", error);
-        });
-    }
-  }, [isbn]);
+  const coverUrl = UseFetchCoverImage(isbn);
 
   const handleDelete = async () => {
     try {
