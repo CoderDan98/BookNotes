@@ -18,7 +18,7 @@ const BookCard = ({
     try {
       await DeleteBook(id);
       if (onDelete) {
-        onDelete(id);
+        onDelete();
       }
     } catch (error) {
       console.error("Failed to delete the book:", error);
