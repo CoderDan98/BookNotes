@@ -42,7 +42,7 @@ The Book Notes Application is a web-based platform that allows users to manage a
     ('Book Five', 'A gripping horror story.', 'Highly recommended', '2019-11-05', 'Author Five', 280, 'Publisher Five');
    ```
 
-3. **Create .env File in Root Directory & Update Values**
+3. **Create .env File in the Server Directory & Update Values**
 
    ```plaintext
     DB_USER = 'your_user'
