@@ -19,7 +19,7 @@ const BookCard = ({
 
   useEffect(() => {
     if (isbn) {
-      const url = `https://covers.openlibrary.org/b/isbn/${isbn}-L.jpg`;
+      const url = `https://covers.openlibrary.org/b/isbn/${isbn}-M.jpg`;
       fetch(url)
         .then((response) => {
           if (response.ok) {
