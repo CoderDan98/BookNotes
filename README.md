@@ -74,8 +74,6 @@ The Book Notes Application is a web-based platform that allows users to manage a
 6. Start Application
 
    ```bash
-   cd ../
-
    cd client
    npm start
    ```
