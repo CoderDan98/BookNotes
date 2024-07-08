@@ -22,7 +22,7 @@ const App = () => {
           <div className="book-list">
             {books.map((book) => (
               <BookCard
-                key={book.book_id}
+                id={book.book_id}
                 title={book.title}
                 author={book.author}
                 releaseDate={formatDate(book.release_date)}

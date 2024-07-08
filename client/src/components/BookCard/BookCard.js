@@ -1,8 +1,10 @@
 import React from "react";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import "./BookCard.css";
+import { DeleteBook } from "../../services/Books";
 
 const BookCard = ({
+  id,
   title,
   author,
   releaseDate,
@@ -10,7 +12,19 @@ const BookCard = ({
   pageCount,
   description,
   notes,
+  onDelete,
 }) => {
+  const handleDelete = async () => {
+    try {
+      await DeleteBook(id);
+      if (onDelete) {
+        onDelete(id);
+      }
+    } catch (error) {
+      console.error("Failed to delete the book:", error);
+    }
+  };
+
   return (
     <div className="book-card">
       <h2>{title}</h2>
@@ -34,7 +48,10 @@ const BookCard = ({
       </p>
       <div className="icon-container">
         <i className="fas fa-pencil-alt edit-icon"></i>
-        <i className="fas fa-trash-alt recycle-bin-icon"></i>
+        <i
+          className="fas fa-trash-alt recycle-bin-icon"
+          onClick={handleDelete}
+        ></i>
       </div>
     </div>
   );
