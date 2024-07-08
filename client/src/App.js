@@ -19,13 +19,16 @@ const App = () => {
           <p>{error}</p>
         ) : (
           <div className="book-list">
-            {books.map((book, index) => (
+            {books.map((book) => (
               <BookCard
-                key={index}
+                key={book.book_id}
                 title={book.title}
-                description={book.description}
+                author={book.author}
                 releaseDate={book.release_date}
+                publisher={book.publisher}
                 pageCount={book.page_count}
+                description={book.description}
+                notes={book.notes}
               />
             ))}
           </div>
