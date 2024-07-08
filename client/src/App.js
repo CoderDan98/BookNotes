@@ -43,6 +43,7 @@ const App = () => {
                   pageCount={book.page_count}
                   description={book.description}
                   notes={book.notes}
+                  isbn={book.isbn_id}
                   onDelete={refetch}
                 />
               ))

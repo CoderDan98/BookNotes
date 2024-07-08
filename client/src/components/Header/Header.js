@@ -20,15 +20,6 @@ const Header = ({ onSearch }) => {
         </button>
       </div>
       <nav className={`nav-links ${isMenuOpen ? "open" : ""}`}>
-        <a href="#home" onClick={() => setIsMenuOpen(false)}>
-          Home
-        </a>
-        <a href="#about" onClick={() => setIsMenuOpen(false)}>
-          About
-        </a>
-        <a href="#contact" onClick={() => setIsMenuOpen(false)}>
-          Contact
-        </a>
         <div className="search-box">
           <SearchBar onSearch={onSearch} />
         </div>

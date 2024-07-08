@@ -25,7 +25,7 @@ The Book Notes Application is a web-based platform that allows users to manage a
    ```sql
    CREATE TABLE books (
     book_id SERIAL NOT NULL,
-    cover_id VARCHAR(255),
+    isbn_id VARCHAR(255) NULL,
     title VARCHAR(255) NOT NULL,
     description TEXT NOT NULL,
     notes TEXT NULL,
@@ -35,12 +35,12 @@ The Book Notes Application is a web-based platform that allows users to manage a
     publisher VARCHAR(255) NOT NULL
    );
 
-   INSERT INTO books (cover_id, title, description, notes, release_date, author, page_count, publisher) VALUES
-   ('OL82563W', 'Book One', 'A thrilling mystery novel.', 'Bestseller', '2023-01-01', 'Author One', 300, 'Publisher One'),
-   ('OL82563W', 'Book Two', 'An exciting science fiction tale.', 'Award-winning', '2022-05-15', 'Author Two', 250, 'Publisher Two'),
-   ('OL82563W', 'Book Three', 'A fascinating historical fiction.', 'Critically acclaimed', '2021-09-10', 'Author Three', 400, 'Publisher Three'),
-   ('OL82563W', 'Book Four', 'A heartwarming romance.', NULL, '2020-03-25', 'Author Four', 320, 'Publisher Four'),
-   ('OL82563W', 'Book Five', 'A gripping horror story.', 'Highly recommended', '2019-11-05', 'Author Five', 280, 'Publisher Five');
+   INSERT INTO books (isbn_id, title, description, notes, release_date, author, page_count, publisher) VALUES
+   ('9780545582889', 'Book One', 'A thrilling mystery novel.', 'Bestseller', '2023-01-01', 'Author One', 300, 'Publisher One'),
+   ('9780545582889', 'Book Two', 'An exciting science fiction tale.', 'Award-winning', '2022-05-15', 'Author Two', 250, 'Publisher Two'),
+   ('9780545582889', 'Book Three', 'A fascinating historical fiction.', 'Critically acclaimed', '2021-09-10', 'Author Three', 400, 'Publisher Three'),
+   ('9780545582889', 'Book Four', 'A heartwarming romance.', NULL, '2020-03-25', 'Author Four', 320, 'Publisher Four'),
+   ('9780545582889', 'Book Five', 'A gripping horror story.', 'Highly recommended', '2019-11-05', 'Author Five', 280, 'Publisher Five');
    ```
 
 3. **Create .env File in the Server Directory & Update Values**
