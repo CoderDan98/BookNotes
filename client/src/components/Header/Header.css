@@ -17,6 +17,15 @@
   font-size: 24px;
 }
 
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+}
+
 .nav-links {
   display: flex;
   gap: 20px;
@@ -26,6 +35,7 @@
   color: white;
   text-decoration: none;
   font-size: 16px;
+  padding: 10px 20px;
 }
 
 .nav-links a:hover {
@@ -35,4 +45,59 @@
 .search-box input {
   padding: 5px;
   font-size: 16px;
+}
+
+/* Responsive styling for mobile devices */
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px;
+  }
+
+  .header-top {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+  }
+
+  .logo {
+    flex: 1;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    display: none;
+  }
+
+  .nav-links.open {
+    display: flex;
+  }
+
+  .nav-links a {
+    font-size: 18px;
+    padding: 10px 20px;
+    width: calc(100% - 40px); /* Adjusted padding */
+    text-align: left;
+    background-color: #404552;
+    border-radius: 5px;
+  }
+
+  .search-box {
+    width: 100%;
+  }
+
+  .search-box input {
+    width: calc(100% - 20px);
+    padding: 10px;
+    font-size: 18px;
+    border-radius: 5px; /* Added rounded edges */
+  }
 }
