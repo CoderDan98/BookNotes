@@ -78,6 +78,7 @@
 
   .nav-links.open {
     display: flex;
+    margin-top: 10px;
   }
 
   .nav-links a {
