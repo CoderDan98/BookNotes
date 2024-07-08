@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import "./BookCard.css";
 import { DeleteBook } from "../../services/Books";
 import UseFetchCoverImage from "../../hooks/UseFetchCoverImage";
+import EditBookCard from "./EditBookCard";
 
 const BookCard = ({
   id,
@@ -17,6 +18,18 @@ const BookCard = ({
   onDelete,
 }) => {
   const coverUrl = UseFetchCoverImage(isbn);
+  const [isEditModalVisible, setEditModalVisible] = useState(false);
+  const [bookDetails, setBookDetails] = useState({
+    id,
+    title,
+    author,
+    releaseDate,
+    publisher,
+    pageCount,
+    description,
+    notes,
+    isbn,
+  });
 
   const handleDelete = async () => {
     try {
@@ -29,39 +42,65 @@ const BookCard = ({
     }
   };
 
+  const handleEditClick = () => {
+    setEditModalVisible(true);
+  };
+
+  const handleModalClose = () => {
+    setEditModalVisible(false);
+  };
+
+  const handleModalSave = (updatedDetails) => {
+    setBookDetails(updatedDetails);
+    setEditModalVisible(false);
+  };
+
   return (
     <div className="book-card">
-      <h2>{title}</h2>
+      <h2>{bookDetails.title}</h2>
       {coverUrl ? (
-        <img src={coverUrl} alt={`${title} cover`} className="book-cover" />
+        <img
+          src={coverUrl}
+          alt={`${bookDetails.title} cover`}
+          className="book-cover"
+        />
       ) : (
         <p>Cover not available</p>
       )}
       <p>
-        <strong>Author:</strong> {author}
+        <strong>Author:</strong> {bookDetails.author}
       </p>
       <p>
-        <strong>Release Date:</strong> {releaseDate}
+        <strong>Release Date:</strong> {bookDetails.releaseDate}
       </p>
       <p>
-        <strong>Publisher:</strong> {publisher}
+        <strong>Publisher:</strong> {bookDetails.publisher}
       </p>
       <p>
-        <strong>Page Count:</strong> {pageCount}
+        <strong>Page Count:</strong> {bookDetails.pageCount}
       </p>
       <p>
-        <strong>Descriptions:</strong> {description}
+        <strong>Descriptions:</strong> {bookDetails.description}
       </p>
       <p>
-        <strong>Notes:</strong> {notes}
+        <strong>Notes:</strong> {bookDetails.notes}
       </p>
       <div className="icon-container">
-        <i className="fas fa-pencil-alt edit-icon"></i>
+        <i
+          className="fas fa-pencil-alt edit-icon"
+          onClick={handleEditClick}
+        ></i>
         <i
           className="fas fa-trash-alt recycle-bin-icon"
           onClick={handleDelete}
         ></i>
       </div>
+      <EditBookCard
+        show={isEditModalVisible}
+        bookDetails={bookDetails}
+        onClose={handleModalClose}
+        onSave={handleModalSave}
+      />
     </div>
   );
 };
