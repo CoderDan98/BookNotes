@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./Header.css";
 import SearchBar from "../SearchBar/SearchBar";
 
-const Header = () => {
+const Header = ({ onSearch }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const toggleMenu = () => {
@@ -30,7 +30,7 @@ const Header = () => {
           Contact
         </a>
         <div className="search-box">
-          <SearchBar />
+          <SearchBar onSearch={onSearch} />
         </div>
       </nav>
     </div>
