@@ -8,3 +8,12 @@ export const FetchBooks = async () => {
     throw error;
   }
 };
+
+export const DeleteBook = async (id) => {
+  try {
+    const response = await axios.delete(`http://localhost:3000/books/${id}`);
+    return response.data;
+  } catch (error) {
+    throw error;
+  }
+};
