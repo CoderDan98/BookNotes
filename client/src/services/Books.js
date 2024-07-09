@@ -9,6 +9,18 @@ export const FetchBooks = async () => {
   }
 };
 
+export const AddBook = async (id, bookData) => {
+  try {
+    const response = await axios.put(
+      `http://localhost:3000/books/add/${id}`,
+      bookData
+    );
+    return response.data;
+  } catch (error) {
+    throw error;
+  }
+};
+
 export const UpdateBook = async (id, bookData) => {
   try {
     const response = await axios.put(

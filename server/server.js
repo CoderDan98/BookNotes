@@ -28,6 +28,45 @@ app.get("/books/data", async (req, res) => {
   }
 });
 
+app.post("/books/add", async (req, res) => {
+  const {
+    title,
+    isbn,
+    author,
+    releaseDate,
+    publisher,
+    pageCount,
+    description,
+    notes,
+  } = req.body;
+
+  try {
+    const result = await pool.query(
+      `INSERT INTO books (isbn_id, title, description, notes, release_date, author, page_count, publisher, created_date)
+       VALUES($2, $1, $7, $8, $4, $3, $6, $5, CURRENT_TIMESTAMP)`,
+      [
+        title,
+        isbn,
+        author,
+        releaseDate,
+        publisher,
+        pageCount,
+        description,
+        notes,
+      ]
+    );
+
+    if (result.rowCount > 0) {
+      res.status(200).json({ message: "Book added successfully" });
+    } else {
+      res.status(404).json({ message: "Book not found" });
+    }
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).json({ message: "Server error" });
+  }
+});
+
 app.put("/books/update/:id", async (req, res) => {
   const { id } = req.params;
   const {
