@@ -50,3 +50,9 @@
 body.modal-open {
   overflow: hidden;
 }
+
+@media (max-width: 768px) {
+  .modal-content {
+    margin: 10px;
+  }
+}
