@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import PropTypes from "prop-types";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import "./BookCard.css";
 import { DeleteBook } from "../../services/Books";
@@ -16,7 +17,7 @@ const BookCard = ({
   notes,
   isbn,
   onDelete,
-  refetch, // Receive refetch as a prop
+  refetch,
 }) => {
   const coverUrl = UseFetchCoverImage(isbn);
   const [isEditModalVisible, setEditModalVisible] = useState(false);
@@ -46,6 +47,7 @@ const BookCard = ({
       if (onDelete) {
         onDelete();
       }
+      refetch();
     } catch (error) {
       console.error("Failed to delete the book:", error);
     }
@@ -62,7 +64,7 @@ const BookCard = ({
   const handleModalSave = (updatedDetails) => {
     setBookDetails(updatedDetails);
     setEditModalVisible(false);
-    refetch(); // Refetch books after saving
+    refetch();
   };
 
   return (
@@ -93,7 +95,7 @@ const BookCard = ({
           <strong>Page Count:</strong> {bookDetails.pageCount}
         </p>
         <p>
-          <strong>Descriptions:</strong> {bookDetails.description}
+          <strong>Description:</strong> {bookDetails.description}
         </p>
         <p>
           <strong>Notes:</strong> {bookDetails.notes}
@@ -118,6 +120,20 @@ const BookCard = ({
       />
     </div>
   );
+};
+
+BookCard.propTypes = {
+  id: PropTypes.number.isRequired,
+  title: PropTypes.string.isRequired,
+  author: PropTypes.string.isRequired,
+  releaseDate: PropTypes.string.isRequired,
+  publisher: PropTypes.string.isRequired,
+  pageCount: PropTypes.number.isRequired,
+  description: PropTypes.string.isRequired,
+  notes: PropTypes.string,
+  isbn: PropTypes.string,
+  onDelete: PropTypes.func,
+  refetch: PropTypes.func.isRequired,
 };
 
 export default BookCard;
