@@ -4,11 +4,13 @@ const { Pool } = require("pg");
 require("dotenv").config();
 
 const app = express();
+const PORT = process.env.PORT || 3000;
+
+// Middleware
 app.use(cors());
 app.use(express.json());
 
-const PORT = 3000;
-
+// PostgreSQL Pool setup
 const pool = new Pool({
   user: process.env.DB_USER,
   host: process.env.DB_HOST,
@@ -17,6 +19,7 @@ const pool = new Pool({
   port: process.env.DB_PORT,
 });
 
+// Routes
 app.get("/books/data", async (req, res) => {
   try {
     const result = await pool.query(
@@ -24,7 +27,8 @@ app.get("/books/data", async (req, res) => {
     );
     res.json(result.rows);
   } catch (err) {
-    console.error(err.message);
+    console.error("Error fetching books:", err.message);
+    res.status(500).json({ message: "Server error" });
   }
 });
 
@@ -45,24 +49,20 @@ app.post("/books/add", async (req, res) => {
       `INSERT INTO books (isbn_id, title, description, notes, release_date, author, page_count, publisher, created_date)
        VALUES($2, $1, $7, $8, $4, $3, $6, $5, CURRENT_TIMESTAMP)`,
       [
-        title,
         isbn,
-        author,
-        releaseDate,
-        publisher,
-        pageCount,
+        title,
         description,
         notes,
+        releaseDate,
+        author,
+        pageCount,
+        publisher,
       ]
     );
 
-    if (result.rowCount > 0) {
-      res.status(200).json({ message: "Book added successfully" });
-    } else {
-      res.status(404).json({ message: "Book not found" });
-    }
+    res.status(200).json({ message: "Book added successfully" });
   } catch (err) {
-    console.error(err.message);
+    console.error("Error adding book:", err.message);
     res.status(500).json({ message: "Server error" });
   }
 });
@@ -111,7 +111,7 @@ app.put("/books/update/:id", async (req, res) => {
       res.status(404).json({ message: "Book not found" });
     }
   } catch (err) {
-    console.error(err.message);
+    console.error("Error updating book:", err.message);
     res.status(500).json({ message: "Server error" });
   }
 });
@@ -128,11 +128,12 @@ app.delete("/books/delete/:id", async (req, res) => {
       res.status(404).json({ message: "Book not found" });
     }
   } catch (err) {
-    console.error(err.message);
+    console.error("Error deleting book:", err.message);
     res.status(500).json({ message: "Server error" });
   }
 });
 
+// Start the server
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
 });
