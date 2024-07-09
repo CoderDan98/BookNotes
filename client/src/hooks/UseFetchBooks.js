@@ -1,19 +1,19 @@
 import { useState, useEffect, useCallback } from "react";
 import { FetchBooks } from "../services/Books";
 
-const UseFetchBooks = () => {
+const useFetchBooks = () => {
   const [books, setBooks] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  const GetBooks = useCallback(async () => {
+  const getBooks = useCallback(async () => {
     setLoading(true);
     try {
       const data = await FetchBooks();
       setBooks(data);
       setError(null);
-    } catch (error) {
-      console.error("Error fetching the book data", error);
+    } catch (err) {
+      console.error("Error fetching the book data:", err);
       setError("Failed to fetch book data. Please try again later.");
     } finally {
       setLoading(false);
@@ -21,10 +21,10 @@ const UseFetchBooks = () => {
   }, []);
 
   useEffect(() => {
-    GetBooks();
-  }, [GetBooks]);
+    getBooks();
+  }, [getBooks]);
 
-  return { books, loading, error, refetch: GetBooks };
+  return { books, loading, error, refetch: getBooks };
 };
 
-export default UseFetchBooks;
+export default useFetchBooks;
