@@ -97,7 +97,7 @@ const AddBookCard = ({ show, onClose, onSave, refetch }) => {
           <label>
             ISBN:
             <input
-              type="text"
+              type="number"
               name="isbn"
               value={formData.isbn}
               onChange={handleChange}
