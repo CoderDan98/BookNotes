@@ -51,6 +51,22 @@ body.modal-open {
   overflow: hidden;
 }
 
+.required-icon {
+  color: red;
+}
+
+.error-messages {
+  margin-bottom: 10px;
+  color: red;
+}
+
+.custom-textarea {
+  resize: none;
+  width: 100%;
+  overflow: auto;
+  height: 250px;
+}
+
 @media (max-width: 768px) {
   .modal-content {
     margin: 10px;
