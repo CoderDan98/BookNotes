@@ -7,6 +7,7 @@ import BookCard from "./components/BookCard/BookCard";
 import useFetchBooks from "./hooks/UseFetchBooks";
 import { formatDate } from "./utils/FormatDate";
 import AddBookCard from "./components/BookCard/AddBookCard";
+import "./styles/theme.css";
 
 const App = () => {
   const { books, loading, error, refetch } = useFetchBooks();
