@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
+import PropTypes from "prop-types";
 import moment from "moment";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import { AddBook } from "../../services/Books";
 
 const AddBookCard = ({ show, onClose, onSave, refetch }) => {
-  const [formData, setFormData] = React.useState({
+  const [formData, setFormData] = useState({
     title: "",
     isbn: "",
     author: "",
@@ -15,7 +16,7 @@ const AddBookCard = ({ show, onClose, onSave, refetch }) => {
     notes: "",
   });
 
-  const [errorMessages, setErrorMessages] = React.useState([]);
+  const [errorMessages, setErrorMessages] = useState([]);
 
   if (!show) {
     return null;
@@ -31,7 +32,7 @@ const AddBookCard = ({ show, onClose, onSave, refetch }) => {
     setErrorMessages([]);
   };
 
-  const handleSave = async () => {
+  const validateForm = () => {
     const newErrorMessages = [];
     if (!formData.title) newErrorMessages.push("Title is required.");
     if (!formData.author) newErrorMessages.push("Author is required.");
@@ -39,13 +40,17 @@ const AddBookCard = ({ show, onClose, onSave, refetch }) => {
       !formData.releaseDate ||
       !moment(formData.releaseDate, "YYYY-MM-DD", true).isValid()
     ) {
-      newErrorMessages.push("Release Date is required.");
+      newErrorMessages.push("Valid Release Date is required.");
     }
     if (!formData.publisher) newErrorMessages.push("Publisher is required.");
     if (!formData.pageCount) newErrorMessages.push("Page Count is required.");
     if (!formData.description)
       newErrorMessages.push("Description is required.");
+    return newErrorMessages;
+  };
 
+  const handleSave = async () => {
+    const newErrorMessages = validateForm();
     if (newErrorMessages.length > 0) {
       setErrorMessages(newErrorMessages);
       return;
@@ -57,6 +62,7 @@ const AddBookCard = ({ show, onClose, onSave, refetch }) => {
       refetch();
     } catch (error) {
       console.error("Error adding book:", error);
+      setErrorMessages(["Failed to add book. Please try again."]);
     }
   };
 
@@ -73,7 +79,7 @@ const AddBookCard = ({ show, onClose, onSave, refetch }) => {
         )}
         <form className="edit-book-form">
           <label>
-            <span className="required-icon">*</span>Title:{" "}
+            <span className="required-icon">*</span>Title:
             <input
               type="text"
               name="title"
@@ -83,16 +89,16 @@ const AddBookCard = ({ show, onClose, onSave, refetch }) => {
             />
           </label>
           <label>
-            isbn_id:{" "}
+            ISBN:
             <input
-              type="number"
+              type="text"
               name="isbn"
               value={formData.isbn}
               onChange={handleChange}
             />
           </label>
           <label>
-            <span className="required-icon">*</span>Author:{" "}
+            <span className="required-icon">*</span>Author:
             <input
               type="text"
               name="author"
@@ -102,7 +108,7 @@ const AddBookCard = ({ show, onClose, onSave, refetch }) => {
             />
           </label>
           <label>
-            <span className="required-icon">*</span>Release Date:{" "}
+            <span className="required-icon">*</span>Release Date:
             <input
               type="date"
               name="releaseDate"
@@ -112,7 +118,7 @@ const AddBookCard = ({ show, onClose, onSave, refetch }) => {
             />
           </label>
           <label>
-            <span className="required-icon">*</span>Publisher:{" "}
+            <span className="required-icon">*</span>Publisher:
             <input
               type="text"
               name="publisher"
@@ -122,7 +128,7 @@ const AddBookCard = ({ show, onClose, onSave, refetch }) => {
             />
           </label>
           <label>
-            <span className="required-icon">*</span>Page Count:{" "}
+            <span className="required-icon">*</span>Page Count:
             <input
               type="number"
               name="pageCount"
@@ -132,7 +138,7 @@ const AddBookCard = ({ show, onClose, onSave, refetch }) => {
             />
           </label>
           <label>
-            <span className="required-icon">*</span>Description: <br />
+            <span className="required-icon">*</span>Description:
             <textarea
               className="custom-textarea"
               name="description"
@@ -142,7 +148,7 @@ const AddBookCard = ({ show, onClose, onSave, refetch }) => {
             />
           </label>
           <label>
-            Notes: <br />
+            Notes:
             <textarea
               className="custom-textarea"
               name="notes"
@@ -161,6 +167,13 @@ const AddBookCard = ({ show, onClose, onSave, refetch }) => {
       </div>
     </div>
   );
+};
+
+AddBookCard.propTypes = {
+  show: PropTypes.bool.isRequired,
+  onClose: PropTypes.func.isRequired,
+  onSave: PropTypes.func.isRequired,
+  refetch: PropTypes.func.isRequired,
 };
 
 export default AddBookCard;
