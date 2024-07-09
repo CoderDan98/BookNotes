@@ -1,0 +1,78 @@
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 5px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.modal-content textarea {
+  white-space: pre-wrap;
+}
+
+.edit-book-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.update-icon {
+  color: green;
+  font-size: 1.5em;
+  cursor: pointer;
+}
+
+.cancel-icon {
+  color: red;
+  font-size: 1.5em;
+  cursor: pointer;
+}
+
+body.modal-open {
+  overflow: hidden;
+}
+
+.required-icon {
+  color: red;
+}
+
+.error-messages {
+  margin-bottom: 10px;
+  color: red;
+}
+
+.custom-textarea {
+  resize: none;
+  width: 100%;
+  overflow: auto;
+  height: 250px;
+}
+
+@media (max-width: 768px) {
+  .modal-content {
+    margin: 10px;
+  }
+
+  .custom-textarea {
+    height: 125px;
+  }
+}

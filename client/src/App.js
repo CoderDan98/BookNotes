@@ -6,10 +6,12 @@ import Footer from "./components/Footer/Footer";
 import BookCard from "./components/BookCard/BookCard";
 import UseFetchBooks from "./hooks/UseFetchBooks.js";
 import { formatDate } from "./utils/FormatDate.js";
+import AddBookCard from "./components/BookCard/AddBookCard.js";
 
 const App = () => {
   const { books, loading, error, refetch } = UseFetchBooks();
   const [searchQuery, setSearchQuery] = useState("");
+  const [isAddModalOpen, setIsAddModalOpen] = useState(false);
 
   const handleSearch = (query) => {
     setSearchQuery(query);
@@ -21,12 +23,25 @@ const App = () => {
       book.author.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
+  const handleAddButtonClick = () => {
+    setIsAddModalOpen(true);
+  };
+
+  const handleAddModalClose = () => {
+    setIsAddModalOpen(false);
+  };
+
+  const handleAddSave = () => {
+    setIsAddModalOpen(false);
+    refetch();
+  };
+
   return (
     <div className="app">
       <Header onSearch={handleSearch} />
       <div className="content">
         <div className="button-wrapper">
-          <button className="add-book-button">
+          <button className="add-book-button" onClick={handleAddButtonClick}>
             <i className="fas fa-plus"></i>
           </button>
         </div>
@@ -60,6 +75,12 @@ const App = () => {
         )}
       </div>
       <Footer />
+      <AddBookCard
+        show={isAddModalOpen}
+        onClose={handleAddModalClose}
+        onSave={handleAddSave}
+        refetch={refetch}
+      />
     </div>
   );
 };
