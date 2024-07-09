@@ -35,14 +35,6 @@ The Book Notes Application is a web-based platform that allows users to manage a
     publisher VARCHAR(255) NOT NULL,
     created_date TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
    );
-
-
-   INSERT INTO books (isbn_id, title, description, notes, release_date, author, page_count, publisher, created_date) VALUES
-   ('9780545582889', 'Book One', 'A thrilling mystery novel.', 'Bestseller', '2023-01-01', 'Author One', 300, 'Publisher One', CURRENT_TIMESTAMP),
-   ('9780545582889', 'Book Two', 'An exciting science fiction tale.', 'Award-winning', '2022-05-15', 'Author Two', 250, 'Publisher Two', CURRENT_TIMESTAMP),
-   ('9780545582889', 'Book Three', 'A fascinating historical fiction.', 'Critically acclaimed', '2021-09-10', 'Author Three', 400, 'Publisher Three', CURRENT_TIMESTAMP),
-   ('9780545582889', 'Book Four', 'A heartwarming romance.', NULL, '2020-03-25', 'Author Four', 320, 'Publisher Four', CURRENT_TIMESTAMP),
-   ('9780545582889', 'Book Five', 'A gripping horror story.', 'Highly recommended', '2019-11-05', 'Author Five', 280, 'Publisher Five', CURRENT_TIMESTAMP);
    ```
 
 3. **Create .env File in the Server Directory & Update Values**
