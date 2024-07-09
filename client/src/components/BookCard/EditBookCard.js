@@ -36,7 +36,7 @@ const EditBookCard = ({ show, bookDetails, onClose, onSave }) => {
         <h2>Edit Book Details</h2>
         <form className="edit-book-form">
           <label>
-            Title:
+            Title:{" "}
             <input
               type="text"
               name="title"
@@ -45,7 +45,7 @@ const EditBookCard = ({ show, bookDetails, onClose, onSave }) => {
             />
           </label>
           <label>
-            Author:
+            Author:{" "}
             <input
               type="text"
               name="author"
@@ -54,7 +54,7 @@ const EditBookCard = ({ show, bookDetails, onClose, onSave }) => {
             />
           </label>
           <label>
-            Release Date:
+            Release Date:{" "}
             <input
               type="text"
               name="releaseDate"
@@ -63,7 +63,7 @@ const EditBookCard = ({ show, bookDetails, onClose, onSave }) => {
             />
           </label>
           <label>
-            Publisher:
+            Publisher:{" "}
             <input
               type="text"
               name="publisher"
@@ -72,7 +72,7 @@ const EditBookCard = ({ show, bookDetails, onClose, onSave }) => {
             />
           </label>
           <label>
-            Page Count:
+            Page Count:{" "}
             <input
               type="number"
               name="pageCount"
@@ -81,7 +81,7 @@ const EditBookCard = ({ show, bookDetails, onClose, onSave }) => {
             />
           </label>
           <label>
-            Description:
+            Description:{" "}
             <textarea
               name="description"
               value={formData.description}
@@ -89,7 +89,7 @@ const EditBookCard = ({ show, bookDetails, onClose, onSave }) => {
             />
           </label>
           <label>
-            Notes:
+            Notes:{" "}
             <textarea
               name="notes"
               value={formData.notes}

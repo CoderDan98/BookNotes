@@ -1,4 +1,3 @@
-/* Modal.css */
 .modal {
   position: fixed;
   top: 0;
@@ -9,7 +8,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 1000; /* Ensure the modal appears above other elements */
+  z-index: 1000;
 }
 
 .modal-content {
@@ -44,7 +43,6 @@
   cursor: pointer;
 }
 
-/* Disable background scrolling when the modal is open */
 body.modal-open {
   overflow: hidden;
 }
