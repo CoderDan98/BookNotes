@@ -1,45 +1,45 @@
 import axios from "axios";
 
-export const FetchBooks = async () => {
+const api = axios.create({
+  baseURL: "http://localhost:3000/books",
+});
+
+export const fetchBooks = async () => {
   try {
-    const response = await axios.get("http://localhost:3000/books/data");
+    const response = await api.get("/data");
     return response.data;
   } catch (error) {
+    console.error("Error fetching books:", error);
     throw error;
   }
 };
 
-export const AddBook = async (bookData) => {
+export const addBook = async (bookData) => {
   try {
-    const response = await axios.post(
-      `http://localhost:3000/books/add`,
-      bookData
-    );
+    const response = await api.post("/add", bookData);
     return response.data;
   } catch (error) {
+    console.error("Error adding book:", error);
     throw error;
   }
 };
 
-export const UpdateBook = async (id, bookData) => {
+export const updateBook = async (id, bookData) => {
   try {
-    const response = await axios.put(
-      `http://localhost:3000/books/update/${id}`,
-      bookData
-    );
+    const response = await api.put(`/update/${id}`, bookData);
     return response.data;
   } catch (error) {
+    console.error(`Error updating book with ID ${id}:`, error);
     throw error;
   }
 };
 
-export const DeleteBook = async (id) => {
+export const deleteBook = async (id) => {
   try {
-    const response = await axios.delete(
-      `http://localhost:3000/books/delete/${id}`
-    );
+    const response = await api.delete(`/delete/${id}`);
     return response.data;
   } catch (error) {
+    console.error(`Error deleting book with ID ${id}:`, error);
     throw error;
   }
 };
