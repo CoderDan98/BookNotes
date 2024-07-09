@@ -19,7 +19,9 @@ const pool = new Pool({
 
 app.get("/books/data", async (req, res) => {
   try {
-    const result = await pool.query("SELECT * FROM books");
+    const result = await pool.query(
+      "SELECT * FROM books ORDER BY created_date DESC"
+    );
     res.json(result.rows);
   } catch (err) {
     console.error(err.message);
