@@ -3,7 +3,7 @@ import "./EditBookCard.css";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import { UpdateBook } from "../../services/Books";
 
-const EditBookCard = ({ show, bookDetails, onClose, onSave }) => {
+const EditBookCard = ({ show, bookDetails, onClose, onSave, refetch }) => {
   const [formData, setFormData] = React.useState({
     ...bookDetails,
     description: bookDetails.description || "",
@@ -31,6 +31,7 @@ const EditBookCard = ({ show, bookDetails, onClose, onSave }) => {
     try {
       await UpdateBook(formData.id, formData);
       onSave(formData);
+      refetch();
     } catch (error) {
       console.error("Error updating book:", error);
     }

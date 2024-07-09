@@ -16,6 +16,7 @@ const BookCard = ({
   notes,
   isbn,
   onDelete,
+  refetch, // Receive refetch as a prop
 }) => {
   const coverUrl = UseFetchCoverImage(isbn);
   const [isEditModalVisible, setEditModalVisible] = useState(false);
@@ -61,6 +62,7 @@ const BookCard = ({
   const handleModalSave = (updatedDetails) => {
     setBookDetails(updatedDetails);
     setEditModalVisible(false);
+    refetch(); // Refetch books after saving
   };
 
   return (
@@ -112,6 +114,7 @@ const BookCard = ({
         bookDetails={bookDetails}
         onClose={handleModalClose}
         onSave={handleModalSave}
+        refetch={refetch}
       />
     </div>
   );

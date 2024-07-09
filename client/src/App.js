@@ -44,6 +44,7 @@ const App = () => {
                   notes={book.notes}
                   isbn={book.isbn_id}
                   onDelete={refetch}
+                  refetch={refetch}
                 />
               ))
             ) : (
