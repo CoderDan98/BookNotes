@@ -4,7 +4,7 @@ const api = axios.create({
   baseURL: "http://localhost:3000/books",
 });
 
-export const fetchBooks = async () => {
+export const FetchBooks = async () => {
   try {
     const response = await api.get("/data");
     return response.data;
@@ -14,7 +14,7 @@ export const fetchBooks = async () => {
   }
 };
 
-export const addBook = async (bookData) => {
+export const AddBook = async (bookData) => {
   try {
     const response = await api.post("/add", bookData);
     return response.data;
@@ -24,7 +24,7 @@ export const addBook = async (bookData) => {
   }
 };
 
-export const updateBook = async (id, bookData) => {
+export const UpdateBook = async (id, bookData) => {
   try {
     const response = await api.put(`/update/${id}`, bookData);
     return response.data;
@@ -34,7 +34,7 @@ export const updateBook = async (id, bookData) => {
   }
 };
 
-export const deleteBook = async (id) => {
+export const DeleteBook = async (id) => {
   try {
     const response = await api.delete(`/delete/${id}`);
     return response.data;

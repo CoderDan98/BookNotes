@@ -4,8 +4,8 @@ import "./App.css";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import BookCard from "./components/BookCard/BookCard";
-import useFetchBooks from "./hooks/useFetchBooks";
-import { formatDate } from "./utils/formatDate";
+import useFetchBooks from "./hooks/UseFetchBooks";
+import { formatDate } from "./utils/FormatDate";
 import AddBookCard from "./components/BookCard/AddBookCard";
 
 const App = () => {

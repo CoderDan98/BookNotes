@@ -26,8 +26,7 @@ const AddBookCard = ({ show, onClose, onSave, refetch }) => {
     const { name, value } = e.target;
     setFormData((prevData) => ({
       ...prevData,
-      [name]:
-        name === "releaseDate" ? moment(value).format("YYYY-MM-DD") : value,
+      [name]: name === "releaseDate" ? value : value,
     }));
     setErrorMessages([]);
   };
@@ -56,8 +55,15 @@ const AddBookCard = ({ show, onClose, onSave, refetch }) => {
       return;
     }
 
+    const submissionData = {
+      ...formData,
+      releaseDate: formData.releaseDate || null,
+      isbn: formData.isbn || null,
+      notes: formData.notes || null,
+    };
+
     try {
-      await AddBook(formData);
+      await AddBook(submissionData);
       onSave(formData);
       refetch();
     } catch (error) {
