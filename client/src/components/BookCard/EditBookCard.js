@@ -18,6 +18,7 @@ const EditBookCard = ({ show, bookDetails, onClose, onSave, refetch }) => {
     releaseDate: formatDate(bookDetails.releaseDate),
     description: bookDetails.description || "",
     notes: bookDetails.notes || "",
+    isbn: bookDetails.isbn || "",
   });
 
   const [errorMessages, setErrorMessages] = useState([]);
@@ -28,6 +29,7 @@ const EditBookCard = ({ show, bookDetails, onClose, onSave, refetch }) => {
       releaseDate: formatDate(bookDetails.releaseDate),
       description: bookDetails.description || "",
       notes: bookDetails.notes || "",
+      isbn: bookDetails.isbn || "",
     });
   }, [bookDetails]);
 
@@ -104,7 +106,7 @@ const EditBookCard = ({ show, bookDetails, onClose, onSave, refetch }) => {
           <label>
             ISBN:
             <input
-              type="text"
+              type="number"
               name="isbn"
               value={formData.isbn}
               onChange={handleChange}
