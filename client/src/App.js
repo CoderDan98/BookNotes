@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "@fortawesome/fontawesome-free/css/all.min.css";
 import "./App.css";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
@@ -24,6 +25,11 @@ const App = () => {
     <div className="app">
       <Header onSearch={handleSearch} />
       <div className="content">
+        <div className="button-wrapper">
+          <button className="add-book-button">
+            <i className="fas fa-plus"></i>
+          </button>
+        </div>
         {loading ? (
           <p>Loading...</p>
         ) : error ? (

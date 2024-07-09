@@ -1,14 +1,40 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
 .app {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
 }
 
+.header {
+  position: relative;
+  z-index: 999;
+}
+
 .content {
   flex: 1;
   padding: 20px;
-  margin-top: 50px;
+  margin-top: 100px;
   margin-bottom: 50px;
+  position: relative;
+}
+
+.button-wrapper {
+  position: absolute;
+  top: -40px;
+  right: 20px;
 }
 
 .book-list {
@@ -16,11 +42,40 @@
   flex-direction: column;
 }
 
+.add-book-button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  cursor: pointer;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.add-book-button:hover {
+  background-color: #0056b3;
+}
+
+footer {
+  text-align: center;
+  padding: 10px 0;
+}
+
 @media (max-width: 768px) {
   .content {
     flex: 1;
     padding: 20px;
-    margin-top: 50px;
+    margin-top: 100px;
     margin-bottom: 50px;
+  }
+
+  .button-wrapper {
+    top: -40px;
+    right: 10px;
   }
 }
