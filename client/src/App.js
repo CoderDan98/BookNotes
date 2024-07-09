@@ -4,12 +4,12 @@ import "./App.css";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import BookCard from "./components/BookCard/BookCard";
-import UseFetchBooks from "./hooks/UseFetchBooks.js";
-import { formatDate } from "./utils/FormatDate.js";
-import AddBookCard from "./components/BookCard/AddBookCard.js";
+import useFetchBooks from "./hooks/useFetchBooks";
+import { formatDate } from "./utils/formatDate";
+import AddBookCard from "./components/BookCard/AddBookCard";
 
 const App = () => {
-  const { books, loading, error, refetch } = UseFetchBooks();
+  const { books, loading, error, refetch } = useFetchBooks();
   const [searchQuery, setSearchQuery] = useState("");
   const [isAddModalOpen, setIsAddModalOpen] = useState(false);
 
@@ -49,29 +49,27 @@ const App = () => {
           <p>Loading...</p>
         ) : error ? (
           <p>{error}</p>
-        ) : (
+        ) : filteredBooks.length > 0 ? (
           <div className="book-list">
-            {filteredBooks.length > 0 ? (
-              filteredBooks.map((book) => (
-                <BookCard
-                  key={book.book_id}
-                  id={book.book_id}
-                  title={book.title}
-                  author={book.author}
-                  releaseDate={formatDate(book.release_date)}
-                  publisher={book.publisher}
-                  pageCount={book.page_count}
-                  description={book.description}
-                  notes={book.notes}
-                  isbn={book.isbn_id}
-                  onDelete={refetch}
-                  refetch={refetch}
-                />
-              ))
-            ) : (
-              <p>No books found</p>
-            )}
+            {filteredBooks.map((book) => (
+              <BookCard
+                key={book.book_id}
+                id={book.book_id}
+                title={book.title}
+                author={book.author}
+                releaseDate={formatDate(book.release_date)}
+                publisher={book.publisher}
+                pageCount={book.page_count}
+                description={book.description}
+                notes={book.notes}
+                isbn={book.isbn_id}
+                onDelete={refetch}
+                refetch={refetch}
+              />
+            ))}
           </div>
+        ) : (
+          <p>No books found</p>
         )}
       </div>
       <Footer />
