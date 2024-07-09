@@ -59,8 +59,6 @@ const BookCard = ({
   };
 
   const handleModalSave = (updatedDetails) => {
-    // Here you would typically send the updated details to your server
-    // For now, we'll just update the state
     setBookDetails(updatedDetails);
     setEditModalVisible(false);
   };
