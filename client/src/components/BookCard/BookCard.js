@@ -67,43 +67,47 @@ const BookCard = ({
 
   return (
     <div className="book-card">
-      <h2>{bookDetails.title}</h2>
-      {coverUrl ? (
-        <img
-          src={coverUrl}
-          alt={`${bookDetails.title} cover`}
-          className="book-cover"
-        />
-      ) : (
-        <p>Cover not available</p>
-      )}
-      <p>
-        <strong>Author:</strong> {bookDetails.author}
-      </p>
-      <p>
-        <strong>Release Date:</strong> {bookDetails.releaseDate}
-      </p>
-      <p>
-        <strong>Publisher:</strong> {bookDetails.publisher}
-      </p>
-      <p>
-        <strong>Page Count:</strong> {bookDetails.pageCount}
-      </p>
-      <p>
-        <strong>Descriptions:</strong> {bookDetails.description}
-      </p>
-      <p>
-        <strong>Notes:</strong> {bookDetails.notes}
-      </p>
-      <div className="icon-container">
-        <i
-          className="fas fa-pencil-alt edit-icon"
-          onClick={handleEditClick}
-        ></i>
-        <i
-          className="fas fa-trash-alt recycle-bin-icon"
-          onClick={handleDelete}
-        ></i>
+      <div>
+        {coverUrl ? (
+          <img
+            src={coverUrl}
+            alt={`${bookDetails.title} cover`}
+            className="book-cover"
+          />
+        ) : (
+          <p>Cover not available</p>
+        )}
+      </div>
+      <div className="book-details">
+        <h2>{bookDetails.title}</h2>
+        <p>
+          <strong>Author:</strong> {bookDetails.author}
+        </p>
+        <p>
+          <strong>Release Date:</strong> {bookDetails.releaseDate}
+        </p>
+        <p>
+          <strong>Publisher:</strong> {bookDetails.publisher}
+        </p>
+        <p>
+          <strong>Page Count:</strong> {bookDetails.pageCount}
+        </p>
+        <p>
+          <strong>Descriptions:</strong> {bookDetails.description}
+        </p>
+        <p>
+          <strong>Notes:</strong> {bookDetails.notes}
+        </p>
+        <div className="icon-container">
+          <i
+            className="fas fa-pencil-alt edit-icon"
+            onClick={handleEditClick}
+          ></i>
+          <i
+            className="fas fa-trash-alt recycle-bin-icon"
+            onClick={handleDelete}
+          ></i>
+        </div>
       </div>
       <EditBookModal
         show={isEditModalVisible}

@@ -1,11 +1,25 @@
+/* BookCard.css */
+
 .book-card {
   border: 1px solid #ccc;
   border-radius: 8px;
   padding: 16px;
-  margin: 16px;
+  margin: 16px 0; /* Adjusted margin to stack cards vertically */
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   background-color: #fff;
-  position: relative;
+  display: flex;
+  flex-direction: row; /* Ensures image and text are side by side */
+  align-items: flex-start;
+  position: relative; /* To position the icons absolutely */
+  width: 100%; /* Make the card take full width */
+  box-sizing: border-box; /* Ensure padding and borders are included in the width */
+}
+
+.book-card img {
+  max-width: 150px; /* Adjust the width as needed */
+  height: auto;
+  border-radius: 8px;
+  margin-right: 16px; /* Space between image and text */
 }
 
 .book-card h2 {
@@ -21,7 +35,8 @@
 .icon-container {
   display: flex;
   justify-content: space-between;
-  margin-top: 16px; /* Adjust if necessary to add space above the icons */
+  padding-top: 16px; /* Add padding to push icons down */
+  width: 100%;
 }
 
 .edit-icon,
@@ -38,4 +53,24 @@
 
 .recycle-bin-icon:hover {
   color: #d9534f;
+}
+
+.book-details {
+  flex: 1; /* Ensures the text takes the remaining space */
+  display: flex;
+  flex-direction: column;
+}
+
+/* Responsive layout for smaller screens */
+@media (max-width: 768px) {
+  .book-card {
+    flex-direction: column; /* Stack image and text vertically */
+    align-items: center;
+    text-align: center;
+  }
+
+  .book-card img {
+    max-width: 100%; /* Make image full width */
+    margin: 0 0 16px 0; /* Margin between image and text */
+  }
 }
