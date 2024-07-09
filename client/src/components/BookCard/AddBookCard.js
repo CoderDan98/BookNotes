@@ -39,7 +39,7 @@ const AddBookCard = ({ show, onClose, onSave, refetch }) => {
       !formData.releaseDate ||
       !moment(formData.releaseDate, "YYYY-MM-DD", true).isValid()
     ) {
-      newErrorMessages.push("Valid Release Date is required.");
+      newErrorMessages.push("Release Date is required.");
     }
     if (!formData.publisher) newErrorMessages.push("Publisher is required.");
     if (!formData.pageCount) newErrorMessages.push("Page Count is required.");
