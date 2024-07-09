@@ -17,7 +17,7 @@ const pool = new Pool({
   port: process.env.DB_PORT,
 });
 
-app.get("/data", async (req, res) => {
+app.get("/books/data", async (req, res) => {
   try {
     const result = await pool.query("SELECT * FROM books");
     res.json(result.rows);
@@ -26,7 +26,44 @@ app.get("/data", async (req, res) => {
   }
 });
 
-app.delete("/books/:id", async (req, res) => {
+app.put("/books/update/:id", async (req, res) => {
+  const { id } = req.params;
+  const {
+    title,
+    author,
+    releaseDate,
+    publisher,
+    pageCount,
+    description,
+    notes,
+  } = req.body;
+
+  try {
+    const result = await pool.query(
+      `UPDATE books SET 
+        title = $1,
+        author = $2,
+        release_date = $3,
+        publisher = $4,
+        page_count = $5,
+        description = $6,
+        notes = $7
+       WHERE book_id = $8`,
+      [title, author, releaseDate, publisher, pageCount, description, notes, id]
+    );
+
+    if (result.rowCount > 0) {
+      res.status(200).json({ message: "Book updated successfully" });
+    } else {
+      res.status(404).json({ message: "Book not found" });
+    }
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).json({ message: "Server error" });
+  }
+});
+
+app.delete("/books/delete/:id", async (req, res) => {
   const { id } = req.params;
   try {
     const result = await pool.query("DELETE FROM books WHERE book_id = $1", [

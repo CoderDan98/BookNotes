@@ -1,6 +1,7 @@
 import React from "react";
 import "./EditBookCard.css";
 import "@fortawesome/fontawesome-free/css/all.min.css";
+import UpdateBook from "../../services/Books";
 
 const EditBookCard = ({ show, bookDetails, onClose, onSave }) => {
   const [formData, setFormData] = React.useState({
@@ -26,8 +27,13 @@ const EditBookCard = ({ show, bookDetails, onClose, onSave }) => {
     setFormData((prevData) => ({ ...prevData, [name]: value }));
   };
 
-  const handleSave = () => {
-    onSave(formData);
+  const handleSave = async () => {
+    try {
+      await UpdateBook(formData.id, formData);
+      onSave(formData);
+    } catch (error) {
+      console.error("Error updating book:", error);
+    }
   };
 
   return (
