@@ -44,7 +44,7 @@ app.post("/books/add", async (req, res) => {
   try {
     const result = await pool.query(
       `INSERT INTO books (isbn_id, title, description, notes, release_date, author, page_count, publisher, created_date)
-       VALUES($2, $1, $7, $8, $4, $3, $6, $5, CURRENT_TIMESTAMP)`,
+       VALUES($1, $2, $3, $4, $5, $6, $7, $8, CURRENT_TIMESTAMP)`,
       [
         isbn,
         title,
