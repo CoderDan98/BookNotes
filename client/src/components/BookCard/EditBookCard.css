@@ -71,4 +71,8 @@ body.modal-open {
   .modal-content {
     margin: 10px;
   }
+
+  .custom-textarea {
+    height: 125px;
+  }
 }
