@@ -1,7 +1,7 @@
 import React from "react";
 import "./EditBookCard.css";
 import "@fortawesome/fontawesome-free/css/all.min.css";
-import UpdateBook from "../../services/Books";
+import { UpdateBook } from "../../services/Books";
 
 const EditBookCard = ({ show, bookDetails, onClose, onSave }) => {
   const [formData, setFormData] = React.useState({
@@ -51,6 +51,15 @@ const EditBookCard = ({ show, bookDetails, onClose, onSave }) => {
             />
           </label>
           <label>
+            isbn_id:{" "}
+            <input
+              type="number"
+              name="isbn"
+              value={formData.isbn}
+              onChange={handleChange}
+            />
+          </label>
+          <label>
             Author:{" "}
             <input
               type="text"
@@ -62,7 +71,7 @@ const EditBookCard = ({ show, bookDetails, onClose, onSave }) => {
           <label>
             Release Date:{" "}
             <input
-              type="text"
+              type="date"
               name="releaseDate"
               value={formData.releaseDate}
               onChange={handleChange}

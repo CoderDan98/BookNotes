@@ -30,6 +30,7 @@ app.put("/books/update/:id", async (req, res) => {
   const { id } = req.params;
   const {
     title,
+    isbn,
     author,
     releaseDate,
     publisher,
@@ -42,14 +43,25 @@ app.put("/books/update/:id", async (req, res) => {
     const result = await pool.query(
       `UPDATE books SET 
         title = $1,
-        author = $2,
-        release_date = $3,
-        publisher = $4,
-        page_count = $5,
-        description = $6,
-        notes = $7
-       WHERE book_id = $8`,
-      [title, author, releaseDate, publisher, pageCount, description, notes, id]
+        isbn_id = $2,
+        author = $3,
+        release_date = $4,
+        publisher = $5,
+        page_count = $6,
+        description = $7,
+        notes = $8
+       WHERE book_id = $9`,
+      [
+        title,
+        isbn,
+        author,
+        releaseDate,
+        publisher,
+        pageCount,
+        description,
+        notes,
+        id,
+      ]
     );
 
     if (result.rowCount > 0) {
