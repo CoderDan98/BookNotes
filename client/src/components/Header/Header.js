@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import PropTypes from "prop-types";
 import "./Header.css";
 import SearchBar from "../SearchBar/SearchBar";
 
@@ -10,7 +11,7 @@ const Header = ({ onSearch }) => {
   };
 
   return (
-    <div className="header">
+    <header className="header">
       <div className="header-top">
         <div className="logo">
           <h1>Book Notes</h1>
@@ -24,8 +25,12 @@ const Header = ({ onSearch }) => {
           <SearchBar onSearch={onSearch} />
         </div>
       </nav>
-    </div>
+    </header>
   );
+};
+
+Header.propTypes = {
+  onSearch: PropTypes.func.isRequired,
 };
 
 export default Header;
