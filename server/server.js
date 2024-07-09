@@ -6,11 +6,9 @@ require("dotenv").config();
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// Middleware
 app.use(cors());
 app.use(express.json());
 
-// PostgreSQL Pool setup
 const pool = new Pool({
   user: process.env.DB_USER,
   host: process.env.DB_HOST,
@@ -19,7 +17,6 @@ const pool = new Pool({
   port: process.env.DB_PORT,
 });
 
-// Routes
 app.get("/books/data", async (req, res) => {
   try {
     const result = await pool.query(
@@ -133,7 +130,6 @@ app.delete("/books/delete/:id", async (req, res) => {
   }
 });
 
-// Start the server
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
 });
