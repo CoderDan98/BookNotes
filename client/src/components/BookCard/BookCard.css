@@ -25,6 +25,7 @@
 .book-card p {
   margin: 4px 0;
   font-size: 14px;
+  white-space: pre-wrap;
 }
 
 .icon-container {
