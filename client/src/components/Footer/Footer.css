@@ -2,7 +2,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: var(--background-color);
+  background-color: var(--background-dark-color);
   position: fixed;
   left: 0;
   right: 0;

@@ -1,27 +1,19 @@
-/*
-#AD8B73
-#CEAB93
-#E3CAA5
-#FFFBE9
-*/
-
 :root {
-  --background-color: #ad8b73;
+  --background-dark-color: #ad8b73;
+  --background-light-color: #fffbe9;
   --text-dark-color: #ceab93;
   --text-light-color: #e3caa5;
-  --success-color: #28a745;
-  --danger-color: #dc3545;
 
   --font-family-base: "Helvetica Neue", Arial, sans-serif;
-  --font-size-base: 16px;
-  --font-size-lg: 1.25rem;
-  --font-size-sm: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.5rem;
+  --font-size-sm: 0.5rem;
 
   --spacing-base: 1rem;
   --spacing-lg: 1.5rem;
   --spacing-sm: 0.5rem;
 
-  --border-radius-base: 0.25rem;
-  --border-radius-lg: 0.3rem;
-  --border-radius-sm: 0.2rem;
+  --border-radius-base: 1rem;
+  --border-radius-lg: 1.5rem;
+  --border-radius-sm: 0.5rem;
 }
