@@ -1,54 +1,52 @@
 .book-card {
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  padding: 16px;
-  margin: 10px 0;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  background-color: #fff;
+  border-radius: var(--border-radius-base);
+  padding: var(--spacing-sm);
+  margin: var(--spacing-sm) 0;
+  background-color: var(--background-dark-color);
   display: flex;
   width: 100%;
   box-sizing: border-box;
+  color: var(--text-light-color);
 }
 
 .book-card img {
   max-width: 150px;
   height: auto;
-  border-radius: 8px;
-  margin-right: 16px;
+  border-radius: var(--border-radius-base);
+  margin-right: var(--spacing-sm);
 }
 
 .book-card h2 {
-  margin: 0 0 8px 0;
-  font-size: 20px;
+  margin: 0 0 var(--spacing-sm) 0;
+  font-size: var(--font-size-base);
 }
 
 .book-card p {
-  margin: 4px 0;
-  font-size: 14px;
+  margin: var(--spacing-sm) 0;
+  font-size: var(--font-size-base);
   white-space: pre-wrap;
 }
 
 .icon-container {
   display: flex;
   justify-content: space-between;
-  padding-top: 16px;
+  padding-top: var(--spacing-sm);
   width: 100%;
 }
 
 .edit-icon,
 .recycle-bin-icon {
   font-size: 24px;
-  color: #999;
+  color: var(--background-light-color);
   cursor: pointer;
-  transition: color 0.3s;
 }
 
 .edit-icon:hover {
-  color: #5bc0de;
+  color: var(--text-success-color);
 }
 
 .recycle-bin-icon:hover {
-  color: #d9534f;
+  color: var(--text-danger-color);
 }
 
 .book-details {
@@ -62,10 +60,5 @@
     flex-direction: column;
     align-items: center;
     text-align: center;
-  }
-
-  .book-card img {
-    max-width: 100%;
-    margin: 0 0 16px 0;
   }
 }

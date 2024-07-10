@@ -32,12 +32,6 @@
   gap: var(--spacing-sm);
 }
 
-.modal-actions {
-  display: flex;
-  justify-content: space-between;
-  margin-top: var(--spacing-sm);
-}
-
 .update-icon {
   color: var(--text-light-color);
   font-size: var(--font-size-base);
