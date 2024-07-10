@@ -1,4 +1,7 @@
 .search-box input {
-  padding: 5px;
-  font-size: 16px;
+  background-color: var(--background-light-color);
+  color: var(--text-dark-color);
+  padding: var(--spacing-sm);
+  font-size: var(--font-size-base);
+  border: none;
 }
