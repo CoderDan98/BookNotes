@@ -9,11 +9,6 @@ body {
   min-height: 100vh;
 }
 
-.header {
-  position: relative;
-  z-index: 999;
-}
-
 .content {
   flex: 1;
   padding: var(--spacing-base);
@@ -21,11 +16,6 @@ body {
   margin-bottom: var(--spacing-base);
   position: relative;
 }
-
-/*.button-wrapper {
-  top: var(--spacing-base);
-  right: var(--spacing-sm);
-}*/
 
 .book-list {
   display: flex;
@@ -44,28 +34,17 @@ body {
   justify-content: center;
   font-size: var(--font-size-base);
   cursor: pointer;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .add-book-button:hover {
   background-color: var(--background-light-color);
 }
 
-footer {
-  text-align: center;
-  padding: 10px 0;
-}
-
 @media (max-width: 768px) {
   .content {
     flex: 1;
-    padding: 20px;
-    margin-top: 100px;
-    margin-bottom: 50px;
-  }
-
-  .button-wrapper {
-    top: -40px;
-    right: 10px;
+    padding: var(--spacing-sm);
+    margin-top: var(--spacing-lg);
+    margin-bottom: var(--spacing-base);
   }
 }

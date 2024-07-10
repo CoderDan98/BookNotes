@@ -8,6 +8,8 @@
   right: 0;
   bottom: 0;
   color: var(--text-light-color);
+  text-align: center;
+  padding: var(--spacing-sm) 0;
 }
 
 .footer p {
