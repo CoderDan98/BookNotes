@@ -1,36 +1,16 @@
 /*
-#222831
-#393E46
-#00ADB5
-#EEEEEE
-
 #AD8B73
 #CEAB93
 #E3CAA5
 #FFFBE9
-
-#FCECDD
-#FFC288
-#FEA82F
-#FF6701
 */
 
 :root {
-  --primary-color: #007bff;
-  --secondary-color: #6c757d;
+  --background-color: #ad8b73;
+  --text-dark-color: #ceab93;
+  --text-light-color: #e3caa5;
   --success-color: #28a745;
   --danger-color: #dc3545;
-  --warning-color: #ffc107;
-  --info-color: #17a2b8;
-  --light-color: #f8f9fa;
-  --dark-color: #343a40;
-
-  --text-primary-color: #212529;
-  --text-secondary-color: #6c757d;
-  --text-light-color: #f8f9fa;
-
-  --background-color: #ffffff;
-  --background-secondary-color: #f8f9fa;
 
   --font-family-base: "Helvetica Neue", Arial, sans-serif;
   --font-size-base: 16px;
