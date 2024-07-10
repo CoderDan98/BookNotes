@@ -1,11 +1,17 @@
 :root {
   --background-dark-color: #ad8b73;
   --background-light-color: #fffbe9;
+  --background-danger-color: red;
+  --background-success-color: lime;
+
   --text-dark-color: #ceab93;
   --text-light-color: #e3caa5;
+  --text-danger-color: red;
+  --text-success-color: lime;
 
   --btn-bg-dark-color: #ad8b73;
   --btn-bg-light-color: #fffbe9;
+
   --btn-text-dark-color: #ceab93;
   --btn-text-light-color: #e3caa5;
 

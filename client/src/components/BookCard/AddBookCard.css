@@ -55,10 +55,10 @@ body.modal-open {
 }
 
 .required-icon {
-  color: red;
+  color: var(--text-danger-color);
 }
 
 .error-messages {
   margin-bottom: var(--spacing-sm);
-  color: red;
+  color: var(--text-danger-color);
 }
