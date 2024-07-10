@@ -1,6 +1,7 @@
 body {
   margin: 0;
   font-family: var(--font-family-base);
+  background-color: var(--background-light-color);
 }
 
 .app {

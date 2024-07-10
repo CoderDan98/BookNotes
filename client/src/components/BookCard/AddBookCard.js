@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import moment from "moment";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import { AddBook } from "../../services/Books";
+import "./AddBookCard.css";
 
 const AddBookCard = ({ show, onClose, onSave, refetch }) => {
   const [formData, setFormData] = useState({
@@ -83,7 +84,7 @@ const AddBookCard = ({ show, onClose, onSave, refetch }) => {
             ))}
           </div>
         )}
-        <form className="edit-book-form">
+        <form className="add-book-form">
           <label>
             <span className="required-icon">*</span>Title:
             <input
