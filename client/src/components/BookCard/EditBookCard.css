@@ -1,6 +1,5 @@
 .modal {
   position: fixed;
-  margin: 0;
   top: 0;
   left: 0;
   right: 0;
@@ -8,42 +7,51 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 1000;
 }
 
 .modal-content {
-  background-color: white;
-  padding: 20px;
-  border-radius: 5px;
-  max-width: 500px;
+  background-color: var(--background-dark-color);
+  padding: var(--spacing-base);
+  border-radius: var(--border-radius-base);
   width: 100%;
+  margin: var(--spacing-sm);
+  color: var(--text-light-color);
 }
 
 .modal-content textarea {
   white-space: pre-wrap;
+  background-color: var(--background-light-color);
+  color: var(--text-dark-color);
+  border: none;
+}
+
+.modal-content input {
+  background-color: var(--background-light-color);
+  color: var(--text-dark-color);
+  border: none;
 }
 
 .edit-book-form {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: var(--spacing-sm);
 }
 
 .modal-actions {
   display: flex;
   justify-content: space-between;
-  margin-top: 20px;
+  margin-top: var(--spacing-sm);
 }
 
 .update-icon {
-  color: green;
-  font-size: 1.5em;
+  color: var(--text-light-color);
+  font-size: var(--font-size-base);
   cursor: pointer;
 }
 
 .cancel-icon {
-  color: red;
-  font-size: 1.5em;
+  color: var(--text-light-color);
+  font-size: var(--font-size-base);
   cursor: pointer;
 }
 
@@ -52,12 +60,12 @@ body.modal-open {
 }
 
 .required-icon {
-  color: red;
+  color: var(--text-danger-color);
 }
 
 .error-messages {
-  margin-bottom: 10px;
-  color: red;
+  margin-bottom: var(--spacing-sm);
+  color: var(--text-danger-color);
 }
 
 .custom-textarea {
@@ -65,14 +73,4 @@ body.modal-open {
   width: 100%;
   overflow: auto;
   height: 250px;
-}
-
-@media (max-width: 768px) {
-  .modal-content {
-    margin: 10px;
-  }
-
-  .custom-textarea {
-    height: 125px;
-  }
 }
