@@ -27,8 +27,8 @@ body {
 }
 
 .add-book-button {
-  background-color: var(--background-dark-color);
-  color: var(--text-light-color);
+  background-color: var(--btn-bg-dark-color);
+  color: var(--btn-text-light-color);
   border: none;
   border-radius: var(--border-radius-base);
   width: 50px;
@@ -41,5 +41,5 @@ body {
 }
 
 .add-book-button:hover {
-  background-color: var(--background-light-color);
+  background-color: var(--btn-bg-light-color);
 }

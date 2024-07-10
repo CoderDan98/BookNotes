@@ -4,6 +4,11 @@
   --text-dark-color: #ceab93;
   --text-light-color: #e3caa5;
 
+  --btn-bg-dark-color: #ad8b73;
+  --btn-bg-light-color: #fffbe9;
+  --btn-text-dark-color: #ceab93;
+  --btn-text-light-color: #e3caa5;
+
   --font-family-base: "Helvetica Neue", Arial, sans-serif;
   --font-size-base: 1rem;
   --font-size-lg: 1.5rem;
