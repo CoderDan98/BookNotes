@@ -1,15 +1,16 @@
 .modal {
-  display: flex;
+  position: fixed;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
+  display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .modal-content {
-  background-color: var(--background-dark-color);
+  background-color: var(--background-base-color);
   padding: var(--spacing-base);
   border-radius: var(--border-radius-base);
   width: 100%;
@@ -65,4 +66,9 @@ body.modal-open {
 .error-messages {
   margin-bottom: var(--spacing-sm);
   color: var(--text-danger-color);
+}
+
+.add-title {
+  margin: 0 0 var(--spacing-sm) 0;
+  font-size: var(--font-size-base);
 }

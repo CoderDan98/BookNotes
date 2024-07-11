@@ -84,7 +84,7 @@ const EditBookCard = ({ show, bookDetails, onClose, onSave, refetch }) => {
   return (
     <div className="modal">
       <div className="modal-content">
-        <h2>Edit Book Details</h2>
+        <h2 className="edit-title">Edit Book Details</h2>
         {errorMessages.length > 0 && (
           <div className="error-messages">
             {errorMessages.map((message, index) => (

@@ -10,12 +10,12 @@
 }
 
 .modal-content {
-  background-color: var(--background-dark-color);
+  background-color: var(--background-base-color);
   padding: var(--spacing-base);
   border-radius: var(--border-radius-base);
   width: 100%;
   margin: var(--spacing-sm);
-  color: var(--text-light-color);
+  color: var(--text-dark-color);
 }
 
 .modal-content textarea {
@@ -44,7 +44,7 @@
 }
 
 .update-icon {
-  color: var(--text-light-color);
+  color: var(--text-dark-color);
   font-size: var(--font-size-base);
   cursor: pointer;
 }
@@ -73,4 +73,9 @@ body.modal-open {
   width: 100%;
   overflow: auto;
   height: 250px;
+}
+
+.edit-title {
+  margin: 0 0 var(--spacing-sm) 0;
+  font-size: var(--font-size-base);
 }
