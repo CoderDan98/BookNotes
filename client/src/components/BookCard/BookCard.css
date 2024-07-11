@@ -10,7 +10,7 @@
 }
 
 .book-card img {
-  max-width: 150px;
+  max-width: var(--width-sm);
   height: auto;
   border-radius: var(--border-radius-base);
   margin-right: var(--spacing-sm);
@@ -36,7 +36,7 @@
 
 .edit-icon,
 .recycle-bin-icon {
-  font-size: 24px;
+  font-size: var(--font-size-base);
   color: var(--background-light-color);
   cursor: pointer;
 }
