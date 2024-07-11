@@ -22,24 +22,24 @@
   --width-lg: 6rem;
   --width-extra-lg: 8rem;
 
-  --background-really-light-color: #ffd4d4;
-  --background-light-color: #ffffe8;
-  --background-base-color: #cde990;
-  --background-dark-color: #aacb73;
+  --background-really-light-color: #F1F0E8;
+  --background-light-color: #EEE0C9;
+  --background-base-color: #ADC4CE;
+  --background-dark-color: #96B6C5;
 
-  --text-really-light-color: #ffd4d4;
-  --text-light-color: #ffffe8;
-  --text-base-color: #cde990;
-  --text-dark-color: #aacb73;
+  --text-really-light-color: #F1F0E8;
+  --text-light-color: #EEE0C9;
+  --text-base-color: #ADC4CE;
+  --text-dark-color: #96B6C5;
   --text-error-color: red;
 
-  --btn-bg-really-light-color: #ffd4d4;
-  --btn-bg-light-color: #ffffe8;
-  --btn-bg-base-color: #cde990;
-  --btn-bg-dark-color: #aacb73;
+  --btn-bg-really-light-color: #F1F0E8;
+  --btn-bg-light-color: #EEE0C9;
+  --btn-bg-base-color: #ADC4CE;
+  --btn-bg-dark-color: #96B6C5;
 
-  --btn-text-really-light-color: #ffd4d4;
-  --btn-text-light-color: #ffffe8;
-  --btn-text-base-color: #cde990;
-  --btn-text-dark-color: #aacb73;
+  --btn-text-really-light-color: #F1F0E8;
+  --btn-text-light-color: #EEE0C9;
+  --btn-text-base-color: #ADC4CE;
+  --btn-text-dark-color: #96B6C5;
 }
