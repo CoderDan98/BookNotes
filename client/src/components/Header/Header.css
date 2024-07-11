@@ -74,7 +74,7 @@
   .nav-links a {
     font-size: var(--font-size-lg);
     padding: var(--spacing-sm) var(--spacing-base);
-    width: calc(100% - 40px);
+    width: calc(100% - var(--width-sm));
     text-align: left;
     background-color: var(--secondary-color);
     border-radius: var(--border-radius-sm);
@@ -85,7 +85,7 @@
   }
 
   .search-box input {
-    width: calc(100% - 20px);
+    width: calc(100% - var(--width-sm));
     padding: var(--spacing-sm);
     font-size: var(--font-size-lg);
     border-radius: var(--border-radius-sm);
