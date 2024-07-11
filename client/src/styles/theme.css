@@ -1,33 +1,43 @@
 :root {
-  --background-dark-color: #ad8b73;
-  --background-base-color: #ceab93;
-  --background-light-color: #fffbe9;
-  --background-danger-color: red;
-  --background-success-color: lime;
-
-  --text-dark-color: #ceab93;
-  --text-base-color: #fffbe9;
-  --text-light-color: #e3caa5;
-  --text-danger-color: red;
-  --text-success-color: lime;
-
-  --btn-bg-dark-color: #ad8b73;
-  --btn-bg-base-color: #ceab93;
-  --btn-bg-light-color: #fffbe9;
-
-  --btn-text-dark-color: #ceab93;
-  --btn-text-light-color: #e3caa5;
-
   --font-family-base: "Helvetica Neue", Arial, sans-serif;
+  --font-size-sm: 0.5rem;
   --font-size-base: 1rem;
   --font-size-lg: 1.5rem;
-  --font-size-sm: 0.5rem;
 
+  --spacing-sm: 0.5rem;
   --spacing-base: 1rem;
   --spacing-lg: 1.5rem;
-  --spacing-sm: 0.5rem;
 
+  --border-radius-sm: 0.5rem;
   --border-radius-base: 1rem;
   --border-radius-lg: 1.5rem;
-  --border-radius-sm: 0.5rem;
+
+  --height-sm: 2rem;
+  --height-base: 4rem;
+  --height-lg: 6rem;
+
+  --width-sm: 2rem;
+  --width-base: 4rem;
+  --width-lg: 6rem;
+
+  --background-really-light-color: #fffbe9;
+  --background-light-color: #fffbe9;
+  --background-base-color: #ceab93;
+  --background-dark-color: #ad8b73;
+
+  --text-really-light-color: #fffbe9;
+  --text-light-color: #fffbe9;
+  --text-base-color: #fffbe9;
+  --text-dark-color: #fffbe9;
+  --text-error-color: red;
+
+  --btn-bg-really-light-color: #fffbe9;
+  --btn-bg-light-color: #fffbe9;
+  --btn-bg-base-color: #ceab93;
+  --btn-bg-dark-color: #ad8b73;
+
+  --btn-text-really-light-color: #fffbe9;
+  --btn-text-light-color: #fffbe9;
+  --btn-text-base-color: #fffbe9;
+  --btn-text-dark-color: #fffbe9;
 }
