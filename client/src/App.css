@@ -42,5 +42,5 @@ body {
 }
 
 .add-book-button:hover {
-  background-color: var(--btn-bg-light-color);
+  background-color: var(--btn-bg-base-color);
 }
