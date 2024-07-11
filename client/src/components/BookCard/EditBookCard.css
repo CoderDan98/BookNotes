@@ -72,7 +72,7 @@ body.modal-open {
   resize: none;
   width: 100%;
   overflow: auto;
-  height: 250px;
+  height: var(--height-extra-lg);
 }
 
 .edit-title {
