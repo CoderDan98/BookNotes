@@ -60,12 +60,12 @@ body.modal-open {
 }
 
 .required-icon {
-  color: var(--text-danger-color);
+  color: var(--text-error-color);
 }
 
 .error-messages {
   margin-bottom: var(--spacing-sm);
-  color: var(--text-danger-color);
+  color: var(--text-error-color);
 }
 
 .custom-textarea {
