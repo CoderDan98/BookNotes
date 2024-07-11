@@ -41,12 +41,9 @@
   cursor: pointer;
 }
 
-.edit-icon:hover {
-  color: var(--text-success-color);
-}
-
+.edit-icon:hover,
 .recycle-bin-icon:hover {
-  color: var(--text-danger-color);
+  color: var(--text-dark-color);
 }
 
 .book-details {
@@ -55,10 +52,10 @@
   flex-direction: column;
 }
 
-@media (max-width: 768px) {
+/*@media (max-width: 768px) {
   .book-card {
     flex-direction: column;
     align-items: center;
     text-align: center;
   }
-}
+}*/
