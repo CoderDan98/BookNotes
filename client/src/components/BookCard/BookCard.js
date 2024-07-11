@@ -77,7 +77,7 @@ const BookCard = ({
             className="book-cover"
           />
         ) : (
-          <p>Cover not available</p>
+          <p></p>
         )}
       </div>
       <div className="book-details">

@@ -43,16 +43,16 @@
   margin-top: var(--spacing-sm);
 }
 
-.update-icon {
-  color: var(--text-dark-color);
-  font-size: var(--font-size-base);
-  cursor: pointer;
-}
-
+.update-icon,
 .cancel-icon {
   color: var(--text-light-color);
   font-size: var(--font-size-base);
   cursor: pointer;
+}
+
+.update-icon:hover,
+.cancel-icon:hover {
+  color: var(--text-base-color);
 }
 
 body.modal-open {
