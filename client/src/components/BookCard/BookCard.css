@@ -43,7 +43,7 @@
 
 .edit-icon:hover,
 .recycle-bin-icon:hover {
-  color: var(--text-dark-color);
+  color: var(--text-really-light-color);
 }
 
 .book-details {

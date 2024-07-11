@@ -52,7 +52,7 @@
 
 .update-icon:hover,
 .cancel-icon:hover {
-  color: var(--text-base-color);
+  color: var(--text-really-light-color);
 }
 
 body.modal-open {
