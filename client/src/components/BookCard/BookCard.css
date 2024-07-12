@@ -1,53 +1,67 @@
+/* Styles for the book card container */
 .book-card {
-  border-radius: var(--border-radius-base);
-  padding: var(--spacing-sm);
-  margin: var(--spacing-sm) 0;
-  background-color: var(--background-dark-color);
-  display: flex;
-  width: 100%;
-  box-sizing: border-box;
-  color: var(--text-light-color);
+  border-radius: var(
+    --border-radius-base
+  ); /* Uses a CSS variable for border radius */
+  padding: var(--spacing-sm); /* Uses a CSS variable for padding */
+  margin: var(--spacing-sm) 0; /* Uses a CSS variable for vertical margin */
+  background-color: var(
+    --background-dark-color
+  ); /* Uses a CSS variable for background color */
+  display: flex; /* Uses flexbox for layout */
+  width: 100%; /* Sets the width to 100% */
+  box-sizing: border-box; /* Ensures padding and border are included in the element's total width and height */
+  color: var(--text-light-color); /* Uses a CSS variable for text color */
 }
 
+/* Styles for images within the book card */
 .book-card img {
-  max-width: var(--width-extra-lg);
-  height: auto;
-  border-radius: var(--border-radius-base);
-  margin-right: var(--spacing-sm);
+  max-width: var(--width-extra-lg); /* Uses a CSS variable for maximum width */
+  height: auto; /* Maintains the aspect ratio */
+  border-radius: var(
+    --border-radius-base
+  ); /* Uses a CSS variable for border radius */
+  margin-right: var(--spacing-sm); /* Uses a CSS variable for right margin */
 }
 
+/* Styles for h2 headers within the book card */
 .book-card h2 {
-  margin: 0 0 var(--spacing-sm) 0;
-  font-size: var(--font-size-base);
+  margin: 0 0 var(--spacing-sm) 0; /* Uses a CSS variable for bottom margin */
+  font-size: var(--font-size-base); /* Uses a CSS variable for font size */
 }
 
+/* Styles for paragraphs within the book card */
 .book-card p {
-  margin: var(--spacing-sm) 0;
-  font-size: var(--font-size-base);
-  white-space: pre-wrap;
+  margin: var(--spacing-sm) 0; /* Uses a CSS variable for vertical margin */
+  font-size: var(--font-size-base); /* Uses a CSS variable for font size */
+  white-space: pre-wrap; /* Preserves whitespace and line breaks */
 }
 
+/* Styles for the icon container within the book card */
 .icon-container {
-  display: flex;
-  justify-content: space-between;
-  padding-top: var(--spacing-sm);
-  width: 100%;
+  display: flex; /* Uses flexbox for layout */
+  justify-content: space-between; /* Distributes items with space between */
+  padding-top: var(--spacing-sm); /* Uses a CSS variable for top padding */
+  width: 100%; /* Sets the width to 100% */
 }
 
+/* Styles for the edit and recycle bin icons */
 .edit-icon,
 .recycle-bin-icon {
-  font-size: var(--font-size-base);
-  color: var(--background-light-color);
-  cursor: pointer;
+  font-size: var(--font-size-base); /* Uses a CSS variable for font size */
+  color: var(--background-light-color); /* Uses a CSS variable for icon color */
+  cursor: pointer; /* Changes the cursor to a pointer on hover */
 }
 
+/* Hover styles for the edit and recycle bin icons */
 .edit-icon:hover,
 .recycle-bin-icon:hover {
-  color: var(--text-really-light-color);
+  color: var(--text-really-light-color); /* Changes color on hover */
 }
 
+/* Styles for the book details section within the book card */
 .book-details {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
+  flex: 1; /* Allows the book details section to grow and fill the available space */
+  display: flex; /* Uses flexbox for layout */
+  flex-direction: column; /* Arranges items in a column */
 }

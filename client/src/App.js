@@ -10,28 +10,38 @@ import AddBookCard from "./components/BookCard/AddBookCard";
 import "./styles/theme.css";
 
 const App = () => {
+  // Fetch books data and manage loading and error states
   const { books, loading, error, refetch } = useFetchBooks();
+
+  // State to manage the search query
   const [searchQuery, setSearchQuery] = useState("");
+
+  // State to manage the visibility of the add book modal
   const [isAddModalOpen, setIsAddModalOpen] = useState(false);
 
+  // Handle search query change
   const handleSearch = (query) => {
     setSearchQuery(query);
   };
 
+  // Filter books based on the search query
   const filteredBooks = books.filter(
     (book) =>
       book.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
       book.author.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
+  // Handle click on the add book button
   const handleAddButtonClick = () => {
     setIsAddModalOpen(true);
   };
 
+  // Handle closing of the add book modal
   const handleAddModalClose = () => {
     setIsAddModalOpen(false);
   };
 
+  // Handle saving a new book and refetch the books data
   const handleAddSave = () => {
     setIsAddModalOpen(false);
     refetch();
@@ -39,13 +49,16 @@ const App = () => {
 
   return (
     <div className="app">
+      {/* Render the header component with search functionality */}
       <Header onSearch={handleSearch} />
       <div className="content">
         <div className="button-wrapper">
+          {/* Render the add book button */}
           <button className="add-book-button" onClick={handleAddButtonClick}>
             <i className="fas fa-plus"></i>
           </button>
         </div>
+        {/* Display loading, error or book list based on state */}
         {loading ? (
           <p>Loading...</p>
         ) : error ? (
@@ -73,7 +86,9 @@ const App = () => {
           <p>No books found</p>
         )}
       </div>
+      {/* Render the footer component */}
       <Footer />
+      {/* Render the add book modal */}
       <AddBookCard
         show={isAddModalOpen}
         onClose={handleAddModalClose}

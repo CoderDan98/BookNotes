@@ -19,8 +19,11 @@ const BookCard = ({
   onDelete,
   refetch,
 }) => {
+  // Fetch the cover image URL using a custom hook
   const coverUrl = UseFetchCoverImage(isbn);
+  // State to manage the visibility of the edit modal
   const [isEditModalVisible, setEditModalVisible] = useState(false);
+  // State to store the book details
   const [bookDetails, setBookDetails] = useState({
     id,
     title,
@@ -33,6 +36,7 @@ const BookCard = ({
     isbn,
   });
 
+  // Effect to add or remove the 'modal-open' class to the body when the modal is visible or hidden
   useEffect(() => {
     if (isEditModalVisible) {
       document.body.classList.add("modal-open");
@@ -41,35 +45,40 @@ const BookCard = ({
     }
   }, [isEditModalVisible]);
 
+  // Handle delete action
   const handleDelete = async () => {
     try {
       await DeleteBook(id);
       if (onDelete) {
         onDelete();
       }
-      refetch();
+      refetch(); // Refetch the book list or data
     } catch (error) {
       console.error("Failed to delete the book:", error);
     }
   };
 
+  // Handle edit button click
   const handleEditClick = () => {
     setEditModalVisible(true);
   };
 
+  // Handle modal close action
   const handleModalClose = () => {
     setEditModalVisible(false);
   };
 
+  // Handle modal save action
   const handleModalSave = (updatedDetails) => {
-    setBookDetails(updatedDetails);
-    setEditModalVisible(false);
-    refetch();
+    setBookDetails(updatedDetails); // Update book details
+    setEditModalVisible(false); // Hide the modal
+    refetch(); // Refetch the book list or data
   };
 
   return (
     <div className="book-card">
       <div>
+        {/* Display cover image if available */}
         {coverUrl ? (
           <img
             src={coverUrl}
@@ -101,6 +110,7 @@ const BookCard = ({
           <strong>Notes:</strong> {bookDetails.notes}
         </p>
         <div className="icon-container">
+          {/* Edit and delete icons */}
           <i
             className="fas fa-pencil-alt edit-icon"
             onClick={handleEditClick}
@@ -111,6 +121,7 @@ const BookCard = ({
           ></i>
         </div>
       </div>
+      {/* Edit book modal */}
       <EditBookModal
         show={isEditModalVisible}
         bookDetails={bookDetails}
@@ -122,6 +133,7 @@ const BookCard = ({
   );
 };
 
+// PropTypes for component props validation
 BookCard.propTypes = {
   id: PropTypes.number.isRequired,
   title: PropTypes.string.isRequired,

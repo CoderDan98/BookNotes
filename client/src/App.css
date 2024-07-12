@@ -1,46 +1,57 @@
+/* Styles for the body element */
 body {
-  margin: 0;
-  font-family: var(--font-family-base);
-  background-color: var(--background-really-light-color);
+  margin: 0; /* Remove default margin */
+  font-family: var(--font-family-base); /* Use base font family */
+  background-color: var(
+    --background-really-light-color
+  ); /* Set background color */
 }
 
+/* Styles for the app container */
 .app {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
+  display: flex; /* Use flexbox for layout */
+  flex-direction: column; /* Arrange items in a column */
+  min-height: 100vh; /* Ensure the app takes at least the full viewport height */
 }
 
+/* Styles for the content section */
 .content {
-  flex: 1;
-  padding: var(--spacing-base);
-  margin-top: var(--spacing-lg);
-  margin-bottom: var(--spacing-base);
-  position: relative;
+  flex: 1; /* Allow the content to grow and fill available space */
+  padding: var(--spacing-base); /* Use base spacing for padding */
+  margin-top: var(--spacing-lg); /* Use large spacing for top margin */
+  margin-bottom: var(--spacing-base); /* Use base spacing for bottom margin */
+  position: relative; /* Set position to relative */
 }
 
+/* Styles for the book list */
 .book-list {
-  display: flex;
-  flex-direction: column;
+  display: flex; /* Use flexbox for layout */
+  flex-direction: column; /* Arrange items in a column */
 }
 
+/* Styles for the button wrapper */
 .button-wrapper {
-  padding-top: var(--spacing-base);
+  padding-top: var(--spacing-base); /* Use base spacing for top padding */
 }
 
+/* Styles for the add book button */
 .add-book-button {
-  background-color: var(--btn-bg-dark-color);
-  color: var(--btn-text-light-color);
-  border: none;
-  border-radius: var(--border-radius-base);
-  width: var(--width-base);
-  height: var(--height-base);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: var(--font-size-base);
-  cursor: pointer;
+  background-color: var(--btn-bg-dark-color); /* Use dark background color */
+  color: var(--btn-text-light-color); /* Use light text color */
+  border: none; /* Remove default border */
+  border-radius: var(--border-radius-base); /* Use base border radius */
+  width: var(--width-base); /* Use base width */
+  height: var(--height-base); /* Use base height */
+  display: flex; /* Use flexbox for layout */
+  align-items: center; /* Center items vertically */
+  justify-content: center; /* Center items horizontally */
+  font-size: var(--font-size-base); /* Use base font size */
+  cursor: pointer; /* Change cursor to pointer on hover */
 }
 
+/* Styles for the add book button on hover */
 .add-book-button:hover {
-  background-color: var(--btn-bg-base-color);
+  background-color: var(
+    --btn-bg-base-color
+  ); /* Change background color on hover */
 }

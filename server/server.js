@@ -6,9 +6,11 @@ require("dotenv").config();
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+// Middleware to enable CORS and parse JSON bodies
 app.use(cors());
 app.use(express.json());
 
+// Create a new PostgreSQL connection pool
 const pool = new Pool({
   user: process.env.DB_USER,
   host: process.env.DB_HOST,
@@ -17,6 +19,7 @@ const pool = new Pool({
   port: process.env.DB_PORT,
 });
 
+// Route to get all books, ordered by created date in descending order
 app.get("/books/data", async (req, res) => {
   try {
     const result = await pool.query(
@@ -29,6 +32,7 @@ app.get("/books/data", async (req, res) => {
   }
 });
 
+// Route to add a new book
 app.post("/books/add", async (req, res) => {
   const {
     title,
@@ -64,6 +68,7 @@ app.post("/books/add", async (req, res) => {
   }
 });
 
+// Route to update an existing book by ID
 app.put("/books/update/:id", async (req, res) => {
   const { id } = req.params;
   const {
@@ -113,6 +118,7 @@ app.put("/books/update/:id", async (req, res) => {
   }
 });
 
+// Route to delete a book by ID
 app.delete("/books/delete/:id", async (req, res) => {
   const { id } = req.params;
   try {
@@ -130,6 +136,7 @@ app.delete("/books/delete/:id", async (req, res) => {
   }
 });
 
+// Start the server and listen on the specified port
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
 });

@@ -6,6 +6,7 @@ import "@fortawesome/fontawesome-free/css/all.min.css";
 import { UpdateBook } from "../../services/Books";
 
 const EditBookCard = ({ show, bookDetails, onClose, onSave, refetch }) => {
+  // Function to format date to "YYYY-MM-DD"
   const formatDate = (dateString) => {
     if (!dateString) return "";
     return moment(dateString, ["DD/MM/YYYY", "YYYY-MM-DD"]).format(
@@ -13,6 +14,7 @@ const EditBookCard = ({ show, bookDetails, onClose, onSave, refetch }) => {
     );
   };
 
+  // State to manage form data
   const [formData, setFormData] = useState({
     ...bookDetails,
     releaseDate: formatDate(bookDetails.releaseDate),
@@ -21,8 +23,10 @@ const EditBookCard = ({ show, bookDetails, onClose, onSave, refetch }) => {
     isbn: bookDetails.isbn || "",
   });
 
+  // State to manage error messages
   const [errorMessages, setErrorMessages] = useState([]);
 
+  // Update form data when bookDetails changes
   useEffect(() => {
     setFormData({
       ...bookDetails,
@@ -33,10 +37,12 @@ const EditBookCard = ({ show, bookDetails, onClose, onSave, refetch }) => {
     });
   }, [bookDetails]);
 
+  // If the modal is not to be shown, return null
   if (!show) {
     return null;
   }
 
+  // Handle input changes and update form data state
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prevData) => ({
@@ -44,9 +50,11 @@ const EditBookCard = ({ show, bookDetails, onClose, onSave, refetch }) => {
       [name]:
         name === "releaseDate" ? moment(value).format("YYYY-MM-DD") : value,
     }));
+    // Clear error messages when input changes
     setErrorMessages([]);
   };
 
+  // Validate form fields and return error messages if any
   const validateForm = () => {
     const newErrorMessages = [];
     if (!formData.title) newErrorMessages.push("Title is required.");
@@ -64,7 +72,9 @@ const EditBookCard = ({ show, bookDetails, onClose, onSave, refetch }) => {
     return newErrorMessages;
   };
 
+  // Handle save action
   const handleSave = async () => {
+    // Validate the form and get error messages if any
     const newErrorMessages = validateForm();
     if (newErrorMessages.length > 0) {
       setErrorMessages(newErrorMessages);
@@ -73,8 +83,8 @@ const EditBookCard = ({ show, bookDetails, onClose, onSave, refetch }) => {
 
     try {
       await UpdateBook(formData.id, formData);
-      onSave(formData);
-      refetch();
+      onSave(formData); // Call onSave callback with form data
+      refetch(); // Refetch the book list or data
     } catch (error) {
       console.error("Error updating book:", error);
       setErrorMessages(["Failed to update book. Please try again."]);
@@ -85,6 +95,7 @@ const EditBookCard = ({ show, bookDetails, onClose, onSave, refetch }) => {
     <div className="modal">
       <div className="modal-content">
         <h2 className="edit-title">Edit Book Details</h2>
+        {/* Display error messages if any */}
         {errorMessages.length > 0 && (
           <div className="error-messages">
             {errorMessages.map((message, index) => (
@@ -93,6 +104,7 @@ const EditBookCard = ({ show, bookDetails, onClose, onSave, refetch }) => {
           </div>
         )}
         <form className="edit-book-form">
+          {/* Input fields for book details */}
           <label>
             <span className="required-icon">*</span>Title:
             <input
@@ -173,6 +185,7 @@ const EditBookCard = ({ show, bookDetails, onClose, onSave, refetch }) => {
           </label>
         </form>
         <div className="modal-actions">
+          {/* Save and cancel icons */}
           <i
             className="fas fa-check-circle update-icon"
             onClick={handleSave}
@@ -184,6 +197,7 @@ const EditBookCard = ({ show, bookDetails, onClose, onSave, refetch }) => {
   );
 };
 
+// PropTypes for component props validation
 EditBookCard.propTypes = {
   show: PropTypes.bool.isRequired,
   bookDetails: PropTypes.shape({

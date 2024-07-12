@@ -6,6 +6,7 @@ import { AddBook } from "../../services/Books";
 import "./AddBookCard.css";
 
 const AddBookCard = ({ show, onClose, onSave, refetch }) => {
+  // State to manage form data
   const [formData, setFormData] = useState({
     title: "",
     isbn: "",
@@ -17,21 +18,26 @@ const AddBookCard = ({ show, onClose, onSave, refetch }) => {
     notes: "",
   });
 
+  // State to manage error messages
   const [errorMessages, setErrorMessages] = useState([]);
 
+  // If the modal is not to be shown, return null
   if (!show) {
     return null;
   }
 
+  // Handle input changes and update form data state
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prevData) => ({
       ...prevData,
-      [name]: name === "releaseDate" ? value : value,
+      [name]: value,
     }));
+    // Clear error messages when input changes
     setErrorMessages([]);
   };
 
+  // Validate form fields and return error messages if any
   const validateForm = () => {
     const newErrorMessages = [];
     if (!formData.title) newErrorMessages.push("Title is required.");
@@ -49,13 +55,16 @@ const AddBookCard = ({ show, onClose, onSave, refetch }) => {
     return newErrorMessages;
   };
 
+  // Handle save action
   const handleSave = async () => {
+    // Validate the form and get error messages if any
     const newErrorMessages = validateForm();
     if (newErrorMessages.length > 0) {
       setErrorMessages(newErrorMessages);
       return;
     }
 
+    // Prepare the data to be submitted
     const submissionData = {
       ...formData,
       releaseDate: formData.releaseDate || null,
@@ -63,10 +72,11 @@ const AddBookCard = ({ show, onClose, onSave, refetch }) => {
       notes: formData.notes || null,
     };
 
+    // Try to add the book and handle possible errors
     try {
       await AddBook(submissionData);
-      onSave(formData);
-      refetch();
+      onSave(formData); // Call onSave callback with form data
+      refetch(); // Refetch the book list or data
     } catch (error) {
       console.error("Error adding book:", error);
       setErrorMessages(["Failed to add book. Please try again."]);
@@ -77,6 +87,7 @@ const AddBookCard = ({ show, onClose, onSave, refetch }) => {
     <div className="modal">
       <div className="modal-content">
         <h2 className="add-title">Add New Book</h2>
+        {/* Display error messages if any */}
         {errorMessages.length > 0 && (
           <div className="error-messages">
             {errorMessages.map((message, index) => (
@@ -85,6 +96,7 @@ const AddBookCard = ({ show, onClose, onSave, refetch }) => {
           </div>
         )}
         <form className="add-book-form">
+          {/* Input fields for book details */}
           <label>
             <span className="required-icon">*</span>Title:
             <input
@@ -165,6 +177,7 @@ const AddBookCard = ({ show, onClose, onSave, refetch }) => {
           </label>
         </form>
         <div className="modal-actions">
+          {/* Save and cancel icons */}
           <i
             className="fas fa-check-circle update-icon"
             onClick={handleSave}
@@ -176,6 +189,7 @@ const AddBookCard = ({ show, onClose, onSave, refetch }) => {
   );
 };
 
+// PropTypes for component props validation
 AddBookCard.propTypes = {
   show: PropTypes.bool.isRequired,
   onClose: PropTypes.func.isRequired,

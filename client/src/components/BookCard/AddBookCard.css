@@ -1,74 +1,94 @@
+/* Styles for the modal container */
 .modal {
-  position: fixed;
+  position: fixed; /* Keeps the modal fixed in place */
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  display: flex; /* Uses flexbox for layout */
+  justify-content: center; /* Centers the modal horizontally */
+  align-items: center; /* Centers the modal vertically */
 }
 
+/* Styles for the modal content */
 .modal-content {
-  background-color: var(--background-base-color);
-  padding: var(--spacing-base);
-  border-radius: var(--border-radius-base);
-  width: 100%;
-  margin: var(--spacing-sm);
-  color: var(--text-light-color);
+  background-color: var(
+    --background-base-color
+  ); /* Uses a CSS variable for background color */
+  padding: var(--spacing-base); /* Uses a CSS variable for padding */
+  border-radius: var(
+    --border-radius-base
+  ); /* Uses a CSS variable for border radius */
+  width: 100%; /* Sets the width to 100% */
+  margin: var(--spacing-sm); /* Uses a CSS variable for margin */
+  color: var(--text-light-color); /* Uses a CSS variable for text color */
 }
 
+/* Styles for text areas inside the modal content */
 .modal-content textarea {
-  white-space: pre-wrap;
-  background-color: var(--background-light-color);
-  color: var(--text-dark-color);
-  border: none;
+  white-space: pre-wrap; /* Preserves whitespace and line breaks */
+  background-color: var(
+    --background-light-color
+  ); /* Uses a CSS variable for background color */
+  color: var(--text-dark-color); /* Uses a CSS variable for text color */
+  border: none; /* Removes the border */
 }
 
+/* Styles for input fields inside the modal content */
 .modal-content input {
-  background-color: var(--background-light-color);
-  color: var(--text-dark-color);
-  border: none;
+  background-color: var(
+    --background-light-color
+  ); /* Uses a CSS variable for background color */
+  color: var(--text-dark-color); /* Uses a CSS variable for text color */
+  border: none; /* Removes the border */
 }
 
+/* Styles for the add book form */
 .add-book-form {
-  display: flex;
-  flex-direction: column;
-  gap: var(--spacing-sm);
+  display: flex; /* Uses flexbox for layout */
+  flex-direction: column; /* Arranges items in a column */
+  gap: var(--spacing-sm); /* Uses a CSS variable for gap between items */
 }
 
+/* Styles for the modal action buttons */
 .modal-actions {
-  display: flex;
-  justify-content: space-between;
-  margin-top: var(--spacing-sm);
+  display: flex; /* Uses flexbox for layout */
+  justify-content: space-between; /* Distributes items with space between */
+  margin-top: var(--spacing-sm); /* Uses a CSS variable for margin at the top */
 }
 
+/* Styles for update and cancel icons */
 .update-icon,
 .cancel-icon {
-  color: var(--text-light-color);
-  font-size: var(--font-size-base);
-  cursor: pointer;
+  color: var(--text-light-color); /* Uses a CSS variable for icon color */
+  font-size: var(--font-size-base); /* Uses a CSS variable for font size */
+  cursor: pointer; /* Changes the cursor to a pointer on hover */
 }
 
+/* Hover styles for update and cancel icons */
 .update-icon:hover,
 .cancel-icon:hover {
-  color: var(--text-really-light-color);
+  color: var(--text-really-light-color); /* Changes color on hover */
 }
 
+/* Styles for the body when modal is open */
 body.modal-open {
-  overflow: hidden;
+  overflow: hidden; /* Prevents scrolling */
 }
 
+/* Styles for required icons */
 .required-icon {
-  color: var(--text-error-color);
+  color: var(--text-error-color); /* Uses a CSS variable for error color */
 }
 
+/* Styles for error messages */
 .error-messages {
-  margin-bottom: var(--spacing-sm);
-  color: var(--text-error-color);
+  margin-bottom: var(--spacing-sm); /* Uses a CSS variable for bottom margin */
+  color: var(--text-error-color); /* Uses a CSS variable for error color */
 }
 
+/* Styles for the add title section */
 .add-title {
-  margin: 0 0 var(--spacing-sm) 0;
-  font-size: var(--font-size-base);
+  margin: 0 0 var(--spacing-sm) 0; /* Uses a CSS variable for margin */
+  font-size: var(--font-size-base); /* Uses a CSS variable for font size */
 }

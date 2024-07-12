@@ -1,45 +1,56 @@
 :root {
+  /* Font families */
   --font-family-base: "Helvetica Neue", Arial, sans-serif;
-  --font-size-sm: 0.5rem;
-  --font-size-base: 1rem;
-  --font-size-lg: 1.5rem;
 
-  --spacing-sm: 0.5rem;
-  --spacing-base: 1rem;
-  --spacing-lg: 1.5rem;
+  /* Font sizes */
+  --font-size-sm: 0.5rem; /* Small font size */
+  --font-size-base: 1rem; /* Base font size */
+  --font-size-lg: 1.5rem; /* Large font size */
 
-  --border-radius-sm: 0.5rem;
-  --border-radius-base: 1rem;
-  --border-radius-lg: 1.5rem;
+  /* Spacing sizes */
+  --spacing-sm: 0.5rem; /* Small spacing */
+  --spacing-base: 1rem; /* Base spacing */
+  --spacing-lg: 1.5rem; /* Large spacing */
 
-  --height-sm: 2rem;
-  --height-base: 4rem;
-  --height-lg: 6rem;
-  --height-extra-lg: 8rem;
+  /* Border radius sizes */
+  --border-radius-sm: 0.5rem; /* Small border radius */
+  --border-radius-base: 1rem; /* Base border radius */
+  --border-radius-lg: 1.5rem; /* Large border radius */
 
-  --width-sm: 2rem;
-  --width-base: 4rem;
-  --width-lg: 6rem;
-  --width-extra-lg: 8rem;
+  /* Height sizes */
+  --height-sm: 2rem; /* Small height */
+  --height-base: 4rem; /* Base height */
+  --height-lg: 6rem; /* Large height */
+  --height-extra-lg: 8rem; /* Extra large height */
 
-  --background-really-light-color: #f1f0e8;
-  --background-light-color: #eee0c9;
-  --background-base-color: #adc4ce;
-  --background-dark-color: #96b6c5;
+  /* Width sizes */
+  --width-sm: 2rem; /* Small width */
+  --width-base: 4rem; /* Base width */
+  --width-lg: 6rem; /* Large width */
+  --width-extra-lg: 8rem; /* Extra large width */
 
-  --text-really-light-color: #f1f0e8;
-  --text-light-color: #eee0c9;
-  --text-base-color: #adc4ce;
-  --text-dark-color: #96b6c5;
-  --text-error-color: red;
+  /* Background colors */
+  --background-really-light-color: #f1f0e8; /* Really light background color */
+  --background-light-color: #eee0c9; /* Light background color */
+  --background-base-color: #adc4ce; /* Base background color */
+  --background-dark-color: #96b6c5; /* Dark background color */
 
-  --btn-bg-really-light-color: #f1f0e8;
-  --btn-bg-light-color: #eee0c9;
-  --btn-bg-base-color: #adc4ce;
-  --btn-bg-dark-color: #96b6c5;
+  /* Text colors */
+  --text-really-light-color: #f1f0e8; /* Really light text color */
+  --text-light-color: #eee0c9; /* Light text color */
+  --text-base-color: #adc4ce; /* Base text color */
+  --text-dark-color: #96b6c5; /* Dark text color */
+  --text-error-color: red; /* Error text color */
 
-  --btn-text-really-light-color: #f1f0e8;
-  --btn-text-light-color: #eee0c9;
-  --btn-text-base-color: #adc4ce;
-  --btn-text-dark-color: #96b6c5;
+  /* Button background colors */
+  --btn-bg-really-light-color: #f1f0e8; /* Really light button background color */
+  --btn-bg-light-color: #eee0c9; /* Light button background color */
+  --btn-bg-base-color: #adc4ce; /* Base button background color */
+  --btn-bg-dark-color: #96b6c5; /* Dark button background color */
+
+  /* Button text colors */
+  --btn-text-really-light-color: #f1f0e8; /* Really light button text color */
+  --btn-text-light-color: #eee0c9; /* Light button text color */
+  --btn-text-base-color: #adc4ce; /* Base button text color */
+  --btn-text-dark-color: #96b6c5; /* Dark button text color */
 }
