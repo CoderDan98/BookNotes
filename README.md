@@ -16,7 +16,7 @@ The Book Notes Application is a web-based platform that allows users to manage a
 1. **Clone the repository**
 
    ```bash
-   git clone https://github.com/CoderDan98/BookNotes.git
+   git clone https://github.com/CoderDan98/BookNotesApp.git
    cd BookNotes
    ```
 
