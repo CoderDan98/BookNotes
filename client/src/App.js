@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import "./App.css";
-import Header from "./src/components/Header/Header";
-import Footer from "./src/components/Footer/Footer";
-import BookCard from "./src/components/BookCard/BookCard";
-import useFetchBooks from "./src/hooks/UseFetchBooks";
-import { formatDate } from "./src/utils/FormatDate";
-import AddBookCard from "./src/components/BookCard/AddBookCard";
+import Header from "./components/Header/Header";
+import Footer from "./components/Footer/Footer";
+import BookCard from "./components/BookCard/BookCard";
+import useFetchBooks from "./hooks/UseFetchBooks";
+import { formatDate } from "./utils/FormatDate";
+import AddBookCard from "./components/BookCard/AddBookCard";
 import "./styles/theme.css";
 
 const App = () => {
