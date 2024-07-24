@@ -2,7 +2,7 @@ import axios from "axios";
 
 // Create an axios instance with a base URL
 const api = axios.create({
-  baseURL: "https://booknotesappserver.danielsarney.com//books",
+  baseURL: "booknotesappserver.danielsarney.com/books",
 });
 
 // Function to fetch all books
